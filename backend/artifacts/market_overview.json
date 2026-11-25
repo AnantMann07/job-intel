@@ -1,0 +1,1155 @@
+{
+  "generated_at": "2026-11-25T14:04:55+00:00",
+  "is_sample": false,
+  "source_note": "data_jobs by Luke Barousse (Hugging Face, Apache-2.0)",
+  "kpis": {
+    "postings": 775276,
+    "postings_with_skills": 659498,
+    "companies": 139950,
+    "roles": 17,
+    "distinct_skills": 252,
+    "date_min": "2023-01-01",
+    "date_max": "2023-12-31",
+    "median_salary_usd": 111045.0,
+    "pct_with_salary": 0.0407,
+    "pct_remote": 0.0878
+  },
+  "postings_by_month": [
+    {
+      "month": "2023-01",
+      "postings": 90244
+    },
+    {
+      "month": "2023-02",
+      "postings": 63700
+    },
+    {
+      "month": "2023-03",
+      "postings": 63346
+    },
+    {
+      "month": "2023-04",
+      "postings": 62184
+    },
+    {
+      "month": "2023-05",
+      "postings": 51440
+    },
+    {
+      "month": "2023-06",
+      "postings": 60705
+    },
+    {
+      "month": "2023-07",
+      "postings": 62754
+    },
+    {
+      "month": "2023-08",
+      "postings": 74012
+    },
+    {
+      "month": "2023-09",
+      "postings": 61601
+    },
+    {
+      "month": "2023-10",
+      "postings": 65913
+    },
+    {
+      "month": "2023-11",
+      "postings": 63686
+    },
+    {
+      "month": "2023-12",
+      "postings": 55691
+    }
+  ],
+  "top_skills": [
+    {
+      "skill": "sql",
+      "category": "programming",
+      "postings": 379133,
+      "share": 0.5749
+    },
+    {
+      "skill": "python",
+      "category": "programming",
+      "postings": 374903,
+      "share": 0.5685
+    },
+    {
+      "skill": "aws",
+      "category": "cloud",
+      "postings": 143229,
+      "share": 0.2172
+    },
+    {
+      "skill": "azure",
+      "category": "cloud",
+      "postings": 130851,
+      "share": 0.1984
+    },
+    {
+      "skill": "r",
+      "category": "programming",
+      "postings": 129067,
+      "share": 0.1957
+    },
+    {
+      "skill": "excel",
+      "category": "analyst_tools",
+      "postings": 125484,
+      "share": 0.1903
+    },
+    {
+      "skill": "tableau",
+      "category": "analyst_tools",
+      "postings": 125462,
+      "share": 0.1902
+    },
+    {
+      "skill": "spark",
+      "category": "libraries",
+      "postings": 112745,
+      "share": 0.171
+    },
+    {
+      "skill": "power bi",
+      "category": "analyst_tools",
+      "postings": 97009,
+      "share": 0.1471
+    },
+    {
+      "skill": "java",
+      "category": "programming",
+      "postings": 84390,
+      "share": 0.128
+    },
+    {
+      "skill": "hadoop",
+      "category": "libraries",
+      "postings": 63932,
+      "share": 0.0969
+    },
+    {
+      "skill": "scala",
+      "category": "programming",
+      "postings": 56043,
+      "share": 0.085
+    },
+    {
+      "skill": "snowflake",
+      "category": "cloud",
+      "postings": 54191,
+      "share": 0.0822
+    },
+    {
+      "skill": "databricks",
+      "category": "cloud",
+      "postings": 52398,
+      "share": 0.0795
+    },
+    {
+      "skill": "gcp",
+      "category": "cloud",
+      "postings": 49885,
+      "share": 0.0756
+    },
+    {
+      "skill": "git",
+      "category": "other",
+      "postings": 49576,
+      "share": 0.0752
+    },
+    {
+      "skill": "kafka",
+      "category": "libraries",
+      "postings": 49216,
+      "share": 0.0746
+    },
+    {
+      "skill": "oracle",
+      "category": "cloud",
+      "postings": 44598,
+      "share": 0.0676
+    },
+    {
+      "skill": "nosql",
+      "category": "programming",
+      "postings": 44446,
+      "share": 0.0674
+    },
+    {
+      "skill": "airflow",
+      "category": "libraries",
+      "postings": 44288,
+      "share": 0.0672
+    },
+    {
+      "skill": "sas",
+      "category": "analyst_tools",
+      "postings": 41174,
+      "share": 0.0624
+    },
+    {
+      "skill": "docker",
+      "category": "other",
+      "postings": 40964,
+      "share": 0.0621
+    },
+    {
+      "skill": "sql server",
+      "category": "databases",
+      "postings": 39722,
+      "share": 0.0602
+    },
+    {
+      "skill": "go",
+      "category": "programming",
+      "postings": 38069,
+      "share": 0.0577
+    },
+    {
+      "skill": "kubernetes",
+      "category": "other",
+      "postings": 36669,
+      "share": 0.0556
+    },
+    {
+      "skill": "redshift",
+      "category": "cloud",
+      "postings": 32784,
+      "share": 0.0497
+    },
+    {
+      "skill": "tensorflow",
+      "category": "libraries",
+      "postings": 32690,
+      "share": 0.0496
+    },
+    {
+      "skill": "pyspark",
+      "category": "libraries",
+      "postings": 31581,
+      "share": 0.0479
+    },
+    {
+      "skill": "flow",
+      "category": "other",
+      "postings": 31549,
+      "share": 0.0478
+    },
+    {
+      "skill": "pandas",
+      "category": "libraries",
+      "postings": 31401,
+      "share": 0.0476
+    },
+    {
+      "skill": "linux",
+      "category": "os",
+      "postings": 30400,
+      "share": 0.0461
+    },
+    {
+      "skill": "word",
+      "category": "analyst_tools",
+      "postings": 30272,
+      "share": 0.0459
+    },
+    {
+      "skill": "sap",
+      "category": "analyst_tools",
+      "postings": 28821,
+      "share": 0.0437
+    },
+    {
+      "skill": "powerpoint",
+      "category": "analyst_tools",
+      "postings": 28272,
+      "share": 0.0429
+    },
+    {
+      "skill": "pytorch",
+      "category": "libraries",
+      "postings": 26721,
+      "share": 0.0405
+    },
+    {
+      "skill": "mysql",
+      "category": "databases",
+      "postings": 25177,
+      "share": 0.0382
+    },
+    {
+      "skill": "javascript",
+      "category": "programming",
+      "postings": 24871,
+      "share": 0.0377
+    },
+    {
+      "skill": "bigquery",
+      "category": "cloud",
+      "postings": 23691,
+      "share": 0.0359
+    },
+    {
+      "skill": "jira",
+      "category": "async",
+      "postings": 23227,
+      "share": 0.0352
+    },
+    {
+      "skill": "c++",
+      "category": "programming",
+      "postings": 21154,
+      "share": 0.0321
+    },
+    {
+      "skill": "postgresql",
+      "category": "databases",
+      "postings": 20384,
+      "share": 0.0309
+    },
+    {
+      "skill": "numpy",
+      "category": "libraries",
+      "postings": 20142,
+      "share": 0.0305
+    },
+    {
+      "skill": "terraform",
+      "category": "other",
+      "postings": 20119,
+      "share": 0.0305
+    },
+    {
+      "skill": "github",
+      "category": "other",
+      "postings": 19665,
+      "share": 0.0298
+    },
+    {
+      "skill": "looker",
+      "category": "analyst_tools",
+      "postings": 19655,
+      "share": 0.0298
+    },
+    {
+      "skill": "scikit-learn",
+      "category": "libraries",
+      "postings": 19598,
+      "share": 0.0297
+    },
+    {
+      "skill": "jenkins",
+      "category": "other",
+      "postings": 19515,
+      "share": 0.0296
+    },
+    {
+      "skill": "ssis",
+      "category": "analyst_tools",
+      "postings": 18589,
+      "share": 0.0282
+    },
+    {
+      "skill": "shell",
+      "category": "programming",
+      "postings": 18314,
+      "share": 0.0278
+    },
+    {
+      "skill": "mongodb",
+      "category": "databases",
+      "postings": 17917,
+      "share": 0.0272
+    }
+  ],
+  "top_roles": [
+    {
+      "role": "Data Analyst",
+      "postings": 226782,
+      "share": 0.2925,
+      "median_salary_usd": 88265.0,
+      "top_skills": [
+        {
+          "skill": "sql",
+          "share": 0.5993
+        },
+        {
+          "skill": "excel",
+          "share": 0.4157
+        },
+        {
+          "skill": "python",
+          "share": 0.3607
+        },
+        {
+          "skill": "tableau",
+          "share": 0.3117
+        },
+        {
+          "skill": "power bi",
+          "share": 0.256
+        },
+        {
+          "skill": "r",
+          "share": 0.1927
+        },
+        {
+          "skill": "sas",
+          "share": 0.09
+        },
+        {
+          "skill": "powerpoint",
+          "share": 0.0886
+        },
+        {
+          "skill": "word",
+          "share": 0.084
+        },
+        {
+          "skill": "sap",
+          "share": 0.0711
+        }
+      ]
+    },
+    {
+      "role": "Data Engineer",
+      "postings": 220414,
+      "share": 0.2843,
+      "median_salary_usd": 129644.0,
+      "top_skills": [
+        {
+          "skill": "sql",
+          "share": 0.6759
+        },
+        {
+          "skill": "python",
+          "share": 0.647
+        },
+        {
+          "skill": "aws",
+          "share": 0.3849
+        },
+        {
+          "skill": "azure",
+          "share": 0.3669
+        },
+        {
+          "skill": "spark",
+          "share": 0.332
+        },
+        {
+          "skill": "java",
+          "share": 0.2161
+        },
+        {
+          "skill": "kafka",
+          "share": 0.1836
+        },
+        {
+          "skill": "scala",
+          "share": 0.1784
+        },
+        {
+          "skill": "hadoop",
+          "share": 0.1753
+        },
+        {
+          "skill": "snowflake",
+          "share": 0.1702
+        }
+      ]
+    },
+    {
+      "role": "Data Scientist",
+      "postings": 204773,
+      "share": 0.2641,
+      "median_salary_usd": 124800.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.7909
+        },
+        {
+          "skill": "sql",
+          "share": 0.5454
+        },
+        {
+          "skill": "r",
+          "share": 0.4123
+        },
+        {
+          "skill": "tableau",
+          "share": 0.1978
+        },
+        {
+          "skill": "aws",
+          "share": 0.1895
+        },
+        {
+          "skill": "spark",
+          "share": 0.1751
+        },
+        {
+          "skill": "azure",
+          "share": 0.1531
+        },
+        {
+          "skill": "tensorflow",
+          "share": 0.1385
+        },
+        {
+          "skill": "excel",
+          "share": 0.1171
+        },
+        {
+          "skill": "pytorch",
+          "share": 0.111
+        }
+      ]
+    },
+    {
+      "role": "Software Engineer",
+      "postings": 40791,
+      "share": 0.0526,
+      "median_salary_usd": 100000.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.406
+        },
+        {
+          "skill": "sql",
+          "share": 0.3256
+        },
+        {
+          "skill": "java",
+          "share": 0.2884
+        },
+        {
+          "skill": "aws",
+          "share": 0.2825
+        },
+        {
+          "skill": "azure",
+          "share": 0.178
+        },
+        {
+          "skill": "kubernetes",
+          "share": 0.1648
+        },
+        {
+          "skill": "docker",
+          "share": 0.1599
+        },
+        {
+          "skill": "javascript",
+          "share": 0.1467
+        },
+        {
+          "skill": "linux",
+          "share": 0.1357
+        },
+        {
+          "skill": "git",
+          "share": 0.1188
+        }
+      ]
+    },
+    {
+      "role": "Business Analyst",
+      "postings": 39173,
+      "share": 0.0505,
+      "median_salary_usd": 85000.0,
+      "top_skills": [
+        {
+          "skill": "excel",
+          "share": 0.4852
+        },
+        {
+          "skill": "sql",
+          "share": 0.4035
+        },
+        {
+          "skill": "tableau",
+          "share": 0.2038
+        },
+        {
+          "skill": "power bi",
+          "share": 0.1964
+        },
+        {
+          "skill": "python",
+          "share": 0.1958
+        },
+        {
+          "skill": "powerpoint",
+          "share": 0.1359
+        },
+        {
+          "skill": "word",
+          "share": 0.1089
+        },
+        {
+          "skill": "sap",
+          "share": 0.1035
+        },
+        {
+          "skill": "r",
+          "share": 0.0988
+        },
+        {
+          "skill": "flow",
+          "share": 0.0718
+        }
+      ]
+    },
+    {
+      "role": "Machine Learning Engineer",
+      "postings": 12515,
+      "share": 0.0161,
+      "median_salary_usd": 106900.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.7968
+        },
+        {
+          "skill": "pytorch",
+          "share": 0.3638
+        },
+        {
+          "skill": "tensorflow",
+          "share": 0.3544
+        },
+        {
+          "skill": "aws",
+          "share": 0.3021
+        },
+        {
+          "skill": "sql",
+          "share": 0.2831
+        },
+        {
+          "skill": "spark",
+          "share": 0.2223
+        },
+        {
+          "skill": "azure",
+          "share": 0.2153
+        },
+        {
+          "skill": "docker",
+          "share": 0.2065
+        },
+        {
+          "skill": "java",
+          "share": 0.1919
+        },
+        {
+          "skill": "scikit-learn",
+          "share": 0.1704
+        }
+      ]
+    },
+    {
+      "role": "Cloud Engineer",
+      "postings": 11438,
+      "share": 0.0148,
+      "median_salary_usd": 88400.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.3288
+        },
+        {
+          "skill": "aws",
+          "share": 0.3262
+        },
+        {
+          "skill": "azure",
+          "share": 0.3178
+        },
+        {
+          "skill": "sql",
+          "share": 0.2402
+        },
+        {
+          "skill": "linux",
+          "share": 0.1811
+        },
+        {
+          "skill": "kubernetes",
+          "share": 0.1588
+        },
+        {
+          "skill": "terraform",
+          "share": 0.1569
+        },
+        {
+          "skill": "windows",
+          "share": 0.1282
+        },
+        {
+          "skill": "java",
+          "share": 0.128
+        },
+        {
+          "skill": "gcp",
+          "share": 0.1268
+        }
+      ]
+    },
+    {
+      "role": "DevOps Engineer",
+      "postings": 5611,
+      "share": 0.0072,
+      "median_salary_usd": 89100.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.5466
+        },
+        {
+          "skill": "aws",
+          "share": 0.4923
+        },
+        {
+          "skill": "kubernetes",
+          "share": 0.4239
+        },
+        {
+          "skill": "azure",
+          "share": 0.4084
+        },
+        {
+          "skill": "terraform",
+          "share": 0.3982
+        },
+        {
+          "skill": "docker",
+          "share": 0.3244
+        },
+        {
+          "skill": "linux",
+          "share": 0.2882
+        },
+        {
+          "skill": "sql",
+          "share": 0.2713
+        },
+        {
+          "skill": "ansible",
+          "share": 0.2314
+        },
+        {
+          "skill": "jenkins",
+          "share": 0.2071
+        }
+      ]
+    },
+    {
+      "role": "Analytics Engineer",
+      "postings": 4099,
+      "share": 0.0053,
+      "median_salary_usd": 139246.0,
+      "top_skills": [
+        {
+          "skill": "sql",
+          "share": 0.798
+        },
+        {
+          "skill": "python",
+          "share": 0.6461
+        },
+        {
+          "skill": "tableau",
+          "share": 0.3065
+        },
+        {
+          "skill": "snowflake",
+          "share": 0.2693
+        },
+        {
+          "skill": "aws",
+          "share": 0.2628
+        },
+        {
+          "skill": "airflow",
+          "share": 0.2139
+        },
+        {
+          "skill": "looker",
+          "share": 0.2121
+        },
+        {
+          "skill": "azure",
+          "share": 0.1777
+        },
+        {
+          "skill": "power bi",
+          "share": 0.1743
+        },
+        {
+          "skill": "spark",
+          "share": 0.1635
+        }
+      ]
+    },
+    {
+      "role": "BI Developer",
+      "postings": 2794,
+      "share": 0.0036,
+      "median_salary_usd": 83200.0,
+      "top_skills": [
+        {
+          "skill": "sql",
+          "share": 0.8378
+        },
+        {
+          "skill": "tableau",
+          "share": 0.4718
+        },
+        {
+          "skill": "power bi",
+          "share": 0.4598
+        },
+        {
+          "skill": "python",
+          "share": 0.378
+        },
+        {
+          "skill": "azure",
+          "share": 0.2275
+        },
+        {
+          "skill": "aws",
+          "share": 0.1873
+        },
+        {
+          "skill": "sql server",
+          "share": 0.1802
+        },
+        {
+          "skill": "excel",
+          "share": 0.1749
+        },
+        {
+          "skill": "dax",
+          "share": 0.1652
+        },
+        {
+          "skill": "ssis",
+          "share": 0.1524
+        }
+      ]
+    },
+    {
+      "role": "Data Architect",
+      "postings": 2076,
+      "share": 0.0027,
+      "median_salary_usd": 163782.0,
+      "top_skills": [
+        {
+          "skill": "sql",
+          "share": 0.5873
+        },
+        {
+          "skill": "azure",
+          "share": 0.4975
+        },
+        {
+          "skill": "python",
+          "share": 0.4398
+        },
+        {
+          "skill": "aws",
+          "share": 0.3544
+        },
+        {
+          "skill": "spark",
+          "share": 0.2702
+        },
+        {
+          "skill": "databricks",
+          "share": 0.2233
+        },
+        {
+          "skill": "hadoop",
+          "share": 0.173
+        },
+        {
+          "skill": "nosql",
+          "share": 0.1713
+        },
+        {
+          "skill": "java",
+          "share": 0.1662
+        },
+        {
+          "skill": "gcp",
+          "share": 0.1639
+        }
+      ]
+    },
+    {
+      "role": "Product Analyst",
+      "postings": 1722,
+      "share": 0.0022,
+      "median_salary_usd": 71400.0,
+      "top_skills": [
+        {
+          "skill": "sql",
+          "share": 0.6619
+        },
+        {
+          "skill": "python",
+          "share": 0.392
+        },
+        {
+          "skill": "tableau",
+          "share": 0.3711
+        },
+        {
+          "skill": "excel",
+          "share": 0.2706
+        },
+        {
+          "skill": "r",
+          "share": 0.1795
+        },
+        {
+          "skill": "looker",
+          "share": 0.14
+        },
+        {
+          "skill": "power bi",
+          "share": 0.1163
+        },
+        {
+          "skill": "go",
+          "share": 0.0991
+        },
+        {
+          "skill": "bigquery",
+          "share": 0.0976
+        },
+        {
+          "skill": "jira",
+          "share": 0.0962
+        }
+      ]
+    },
+    {
+      "role": "Research Scientist",
+      "postings": 1004,
+      "share": 0.0013,
+      "median_salary_usd": 154150.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.7467
+        },
+        {
+          "skill": "tensorflow",
+          "share": 0.2572
+        },
+        {
+          "skill": "c++",
+          "share": 0.2559
+        },
+        {
+          "skill": "pytorch",
+          "share": 0.2415
+        },
+        {
+          "skill": "java",
+          "share": 0.2349
+        },
+        {
+          "skill": "r",
+          "share": 0.2205
+        },
+        {
+          "skill": "sql",
+          "share": 0.1824
+        },
+        {
+          "skill": "spark",
+          "share": 0.1352
+        },
+        {
+          "skill": "aws",
+          "share": 0.1234
+        },
+        {
+          "skill": "go",
+          "share": 0.0984
+        }
+      ]
+    },
+    {
+      "role": "MLOps Engineer",
+      "postings": 923,
+      "share": 0.0012,
+      "median_salary_usd": 89100.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.8468
+        },
+        {
+          "skill": "aws",
+          "share": 0.5323
+        },
+        {
+          "skill": "kubernetes",
+          "share": 0.5312
+        },
+        {
+          "skill": "docker",
+          "share": 0.4949
+        },
+        {
+          "skill": "azure",
+          "share": 0.4302
+        },
+        {
+          "skill": "tensorflow",
+          "share": 0.3598
+        },
+        {
+          "skill": "pytorch",
+          "share": 0.3348
+        },
+        {
+          "skill": "gcp",
+          "share": 0.2633
+        },
+        {
+          "skill": "sql",
+          "share": 0.2418
+        },
+        {
+          "skill": "airflow",
+          "share": 0.2293
+        }
+      ]
+    },
+    {
+      "role": "AI Engineer",
+      "postings": 578,
+      "share": 0.0007,
+      "median_salary_usd": 89100.0,
+      "top_skills": [
+        {
+          "skill": "python",
+          "share": 0.7976
+        },
+        {
+          "skill": "tensorflow",
+          "share": 0.3968
+        },
+        {
+          "skill": "pytorch",
+          "share": 0.3889
+        },
+        {
+          "skill": "aws",
+          "share": 0.2877
+        },
+        {
+          "skill": "azure",
+          "share": 0.2877
+        },
+        {
+          "skill": "sql",
+          "share": 0.2302
+        },
+        {
+          "skill": "java",
+          "share": 0.1944
+        },
+        {
+          "skill": "spark",
+          "share": 0.1885
+        },
+        {
+          "skill": "r",
+          "share": 0.1746
+        },
+        {
+          "skill": "keras",
+          "share": 0.1528
+        }
+      ]
+    }
+  ],
+  "top_countries": [
+    {
+      "country": "United States",
+      "postings": 203842
+    },
+    {
+      "country": "India",
+      "postings": 50558
+    },
+    {
+      "country": "United Kingdom",
+      "postings": 40004
+    },
+    {
+      "country": "France",
+      "postings": 39527
+    },
+    {
+      "country": "Germany",
+      "postings": 27406
+    },
+    {
+      "country": "Spain",
+      "postings": 24934
+    },
+    {
+      "country": "Singapore",
+      "postings": 23162
+    },
+    {
+      "country": "Sudan",
+      "postings": 21432
+    },
+    {
+      "country": "Netherlands",
+      "postings": 20443
+    },
+    {
+      "country": "Italy",
+      "postings": 16745
+    }
+  ],
+  "levels": [
+    {
+      "level": "Mid",
+      "postings": 522824
+    },
+    {
+      "level": "Senior",
+      "postings": 142015
+    },
+    {
+      "level": "Lead",
+      "postings": 75076
+    },
+    {
+      "level": "Entry",
+      "postings": 21243
+    },
+    {
+      "level": "Intern",
+      "postings": 14118
+    }
+  ]
+}

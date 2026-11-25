@@ -1,0 +1,3 @@
+# Backend (deployed). Keep this list small: the free server has 512 MB RAM.
+fastapi>=0.115
+uvicorn[standard]>=0.30

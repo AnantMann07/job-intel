@@ -1,0 +1,48 @@
+"""Loads the precomputed artifacts the pipeline wrote into backend/artifacts/.
+
+The API never touches raw data or retrains models: it only reads these small
+files. Each file is read once and cached; if the file changes on disk (e.g.
+you re-run the pipeline while the server is running) it is read again.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from fastapi import HTTPException
+
+from .config import artifacts_dir
+
+_cache: dict[Path, tuple[float, object]] = {}
+
+
+def load_json(name: str) -> dict:
+    path = artifacts_dir() / name
+    if not path.exists():
+        raise HTTPException(
+            status_code=503,
+            detail=f"Artifact '{name}' not found. Run `python -m pipeline.run_all` (add --sample for fake data).",
+        )
+    mtime = path.stat().st_mtime
+    cached = _cache.get(path)
+    if cached and cached[0] == mtime:
+        return cached[1]  # type: ignore[return-value]
+    data = json.loads(path.read_text(encoding="utf-8"))
+    _cache[path] = (mtime, data)
+    return data
+
+
+def market_overview() -> dict:
+    return load_json("market_overview.json")
+
+
+def artifacts_status() -> dict:
+    """Used by /health: which artifacts exist and when the data was built."""
+    folder = artifacts_dir()
+    files = sorted(p.name for p in folder.glob("*.json")) if folder.exists() else []
+    info: dict = {"artifacts": files}
+    if "market_overview.json" in files:
+        ov = market_overview()
+        info["data_generated_at"] = ov.get("generated_at")
+        info["is_sample"] = ov.get("is_sample")
+    return info
