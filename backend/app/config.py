@@ -4,6 +4,8 @@ On Render you set these in the dashboard under "Environment":
   CORS_ORIGINS        comma-separated list of allowed frontend URLs
   CORS_ORIGIN_REGEX   regex for extra allowed origins (default: any *.vercel.app)
   ARTIFACTS_DIR       where the JSON/parquet artifacts live (default: backend/artifacts)
+  GEMINI_API_KEY      turns on AI answers in the assistant (free key: https://aistudio.google.com)
+  GEMINI_MODEL        optional: which Gemini model(s) to try first, comma-separated
 """
 from __future__ import annotations
 

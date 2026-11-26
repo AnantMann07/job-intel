@@ -18,7 +18,7 @@ import math
 from typing import Iterable
 
 TOP_N = 20               # how many of a job's skills count towards "match %"
-READY_THRESHOLD = 70     # match % at which a job counts as "ready to apply"
+READY_THRESHOLD = 50     # match % at which a job counts as "ready to apply"
 W_COSINE, W_COVERAGE, W_DEMAND = 0.5, 0.3, 0.2
 RISING_BOOST = 1.15      # roadmap: rising skills are pulled slightly earlier
 STAGE_SIZE = 2           # roadmap: skills per stage
@@ -206,6 +206,7 @@ def roadmap(user: set[str], role: dict, trend_labels: dict[str, str] | None = No
         "ready": round(100 * coverage(user, role)),
         "have": [{"skill": s["skill"], "share": round(s["share"], 4)} for s in have],
         "top_count": len(top),
+        "top": [{"skill": s["skill"], "share": round(s["share"], 4)} for s in top],  # lets the page update the match % live
         "stages": stages,
         "final_match": stages[-1]["match_after"] if stages else round(100 * coverage(user, role)),
     }

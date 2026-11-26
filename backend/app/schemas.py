@@ -5,7 +5,9 @@ FastAPI uses them to validate output and to generate the interactive docs at
 """
 from __future__ import annotations
 
-from pydantic import BaseModel
+from typing import Literal
+
+from pydantic import BaseModel, Field
 
 
 class Health(BaseModel):
@@ -171,6 +173,7 @@ class RoadmapOut(BaseModel):
     ready: int
     have: list[SkillShare]
     top_count: int
+    top: list[SkillShare] = []
     stages: list[Stage]
     final_match: int
     also_consider: list[RoleMatch] = []
@@ -202,3 +205,35 @@ class TrendDetail(BaseModel):
     months: list[str]
     future: list[str]
     skill: TrendSkill
+
+
+# ---------- AI assistant ----------
+
+class AssistantTurn(BaseModel):
+    role: Literal["user", "assistant"]
+    text: str = Field(max_length=4000)
+
+
+class AssistantIn(BaseModel):
+    message: str = Field(min_length=1, max_length=500)
+    skills: list[str] = Field(default_factory=list, max_length=200)
+    history: list[AssistantTurn] = Field(default_factory=list, max_length=12)
+
+
+class AssistantLink(BaseModel):
+    label: str
+    href: str
+
+
+class AssistantOut(BaseModel):
+    reply: str
+    source: Literal["ai", "data"]  # ai = written by Gemini from our facts; data = built from templates
+    intent: str
+    links: list[AssistantLink] = []
+    chips: list[str] = []
+    skills_added: list[str] = []
+
+
+class AssistantStatus(BaseModel):
+    ai: bool
+    models: list[str]

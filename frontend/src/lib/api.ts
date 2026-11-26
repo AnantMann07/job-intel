@@ -35,7 +35,7 @@ export type GapRow = { skill: string; share: number; category?: string | null; s
 export type GapOut = { role: string; match: number; matched_count: number; total: number; skills: GapRow[]; learn_first: { skill: string; match_after: number }[] };
 export type Stage = { number: number; title: string; skills: { skill: string; share: number; rising: boolean }[]; match_after: number; project: string };
 export type RoadmapOut = {
-  role: string; ready: number; have: { skill: string; share?: number | null }[]; top_count: number;
+  role: string; ready: number; have: { skill: string; share?: number | null }[]; top_count: number; top: { skill: string; share: number }[];
   stages: Stage[]; final_match: number; also_consider: { role: string; match: number }[];
 };
 export type TrendSkill = {
@@ -43,6 +43,12 @@ export type TrendSkill = {
   slope_per_month: number; p_value: number; history: number[]; forecast: number[]; lower: number[]; upper: number[];
 };
 export type TrendDetail = { months: string[]; future: string[]; skill: TrendSkill };
+export type AssistantTurn = { role: "user" | "assistant"; text: string };
+export type AssistantOut = {
+  reply: string; source: "ai" | "data"; intent: string;
+  links: { label: string; href: string }[]; chips: string[]; skills_added: string[];
+};
+export type AssistantStatus = { ai: boolean; models: string[] };
 
 // Free servers sleep when idle and take up to a minute to wake, so allow 90 s.
 async function request<T>(path: string, init?: RequestInit, timeoutMs = 90_000): Promise<T> {
@@ -77,8 +83,39 @@ export const getRoadmap = (skills: string[], role: string) => post<RoadmapOut>("
 export const getTrending = (label: string, limit = 15) => request<TrendSkill[]>(`/api/skills/trending?label=${label}&limit=${limit}`);
 export const getSkillTrend = (skill: string) => request<TrendDetail>(`/api/skills/${encodeURIComponent(skill)}/trend`);
 
+export const getAssistantStatus = () => request<AssistantStatus>("/api/assistant/status");
+export const askAssistant = (message: string, skills: string[], history: AssistantTurn[]) =>
+  post<AssistantOut>("/api/assistant/chat", { message, skills, history });
+
 export function uploadResume(file: File) {
   const form = new FormData();
   form.append("file", file);
   return request<ResumeOut>("/api/resume/parse", { method: "POST", body: form });
 }
+
+// ---------- Career Discovery ----------
+export type DiscoverOption = { id: string; label: string };
+export type DiscoverQuestion = { id: string; title: string; hint: string; multi: boolean; max?: number; options: DiscoverOption[] };
+export type DiscoverQuestions = { questions: DiscoverQuestion[]; strengths: string[]; education: string[] };
+export type Answers = Record<string, string | string[]>;
+export type CareerCard = {
+  id: string; title: string; category: string; source: "postings" | "curated"; description: string;
+  match: number; interest_fit: number; skill_fit: number; reasons: string[]; have: string[];
+  transferable: { have: string; toward: string }[]; missing: string[]; education: string; opportunities: string; next_steps: string[];
+};
+export type DiscoverOut = {
+  top_interests: string[]; skills_used: string[];
+  groups: { strong: CareerCard[]; hidden: CareerCard[]; emerging: CareerCard[]; alternative: CareerCard[] };
+  surprise: CareerCard | null;
+};
+export type CareerProfile = {
+  id: string; title: string; category: string; source: "postings" | "curated"; description: string; involves: string[];
+  education: string; opportunities: string; projects: string[]; postings: number | null; median_salary_usd: number | null;
+  demand: string | null; rising_skills: string[]; skills: { skill: string; weight: number }[]; skill_fit: number;
+  have: string[]; transferable: { have: string; toward: string }[]; missing: string[];
+  roadmap: { step: number; skills: string[]; match_after: number }[]; related: { id: string; title: string; category: string }[];
+};
+export const getDiscoverQuestions = () => request<DiscoverQuestions>("/api/discover/questions");
+export const discoverCareers = (answers: Answers, skills: string[], surprise = 0) => post<DiscoverOut>("/api/discover", { answers, skills, surprise });
+export const getCareer = (id: string, answers: Answers, skills: string[]) => post<CareerProfile>(`/api/careers/${encodeURIComponent(id)}`, { answers, skills });
+export const getCareers = () => request<{ id: string; title: string; category: string; source: string }[]>("/api/careers");

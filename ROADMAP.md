@@ -52,7 +52,7 @@ Done when:
 - `POST /api/resume/parse`: PDF/DOCX upload (max 5 MB) → text (pdfplumber, python-docx) → skills with confidence, using the Step 2 extractor, plus the inferred current job. Nothing is stored.
 - `backend/app/services/scoring.py`:
   - `match(skills, role)`: weighted coverage, partial credit through embedding similarity (Model2Vec), missing skills ranked by weight.
-  - `suggest(skills, filters)`: score every job role (0.5 × skill similarity + 0.3 × match + 0.2 × demand) and split the results into "Ready to apply" (≥ 70%) and "Within reach".
+  - `suggest(skills, filters)`: score every job role (0.5 × skill similarity + 0.3 × match + 0.2 × demand) and split the results into "Ready to apply" (≥ 50%) and "Within reach".
 - Example openings: a small artifact of real postings per role, so each suggestion can list the postings whose skills best match the person's.
 - Endpoints: `/api/resume/parse`, `/api/suggest`, `/api/gap`.
 - Evaluate suggestions with held-out postings as pseudo-candidates: Hit@1, Hit@5 and MRR vs a cosine-only and a "most common job" baseline.

@@ -1,34 +1,112 @@
 @import "tailwindcss";
 
-/* JobIntel design tokens (see DESIGN.md). Use them as Tailwind classes:
-   bg-brand, text-brand-dark, bg-tint, border-line, bg-ground, text-ink-2, bg-amber-soft ... */
-@theme {
-  --color-brand: #4f46e5;
-  --color-brand-dark: #3730a3;
-  --color-tint: #eef0ff;
-  --color-ground: #f7f7fb;
-  --color-line: #e7e8f1;
-  --color-ink: #101828;
-  --color-ink-2: #475467;
-  --color-muted: #667085;
-  --color-amber-soft: #fef0c7;
-  --color-amber-ink: #93370d;
-  --color-amber-icon: #b54708;
-  --color-miss-soft: #fdead7;
-  --color-miss-ink: #9c2a10;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+/* JobIntel design tokens (see DESIGN.md).
+   Brand: deep navy #29263D (text, headings), soft violet #7566CF (actions, links, active),
+   muted sage #E5F1EB (positive highlights only). Everything else is neutral.
+   Colours live in CSS variables so light and dark mode switch everywhere at once. */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #fbfbfc;
+  --surface: #ffffff;
+  --surface-2: #f4f4f7;
+  --line: #e6e5ec;
+  --line-soft: #efeff3;
+  --ink: #29263d;
+  --ink-2: #5d5a6e;
+  --muted: #8b899a;
+  --accent: #7566cf;
+  --accent-hover: #6253be;
+  --accent-soft: #efedfa;
+  --sage: #e5f1eb;
+  --sage-ink: #2f6a4e;
+  --on-accent: #ffffff;
+  --shadow: 0 1px 2px rgba(41, 38, 61, 0.04), 0 8px 24px -16px rgba(41, 38, 61, 0.18);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #17161f;
+  --surface: #1f1d2a;
+  --surface-2: #262435;
+  --line: #34314a;
+  --line-soft: #2b2939;
+  --ink: #f0eff6;
+  --ink-2: #bcb9cc;
+  --muted: #8e8ba1;
+  --accent: #9184e3;
+  --accent-hover: #a397ec;
+  --accent-soft: #2c2847;
+  --sage: #1f3a2e;
+  --sage-ink: #b9e0cb;
+  --on-accent: #17161f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -16px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-ground: var(--bg);
+  --color-paper: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-brand: var(--accent);
+  --color-brand-dark: var(--accent-hover);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-tint: var(--accent-soft);
+  --color-sage: var(--sage);
+  --color-sage-ink: var(--sage-ink);
+  /* older names still used in a few places map onto the same palette */
+  --color-lavender: var(--accent-soft);
+  --color-lavender-ink: var(--accent);
+  --color-mint: var(--sage);
+  --color-mint-ink: var(--sage-ink);
+  --color-peach: var(--surface-2);
+  --color-peach-ink: var(--ink-2);
+  --color-sky: var(--surface-2);
+  --color-sky-ink: var(--accent);
+  --color-rose-ink: var(--ink-2);
+  --color-amber-ink: var(--ink-2);
+  --color-miss-soft: var(--surface-2);
+  --color-miss-ink: var(--ink);
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
-  background: var(--color-ground);
-  color: var(--color-ink);
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
 }
 
-.dots {
-  background-color: var(--color-ground);
-  background-image: radial-gradient(#d6d8ea 1.2px, transparent 1.2px);
-  background-size: 22px 22px;
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+
+/* skill chips: have = sage, to learn = outlined */
+.mark-have, .mark-learn {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 0.15em 0.6em;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.mark-have { background: var(--sage); color: var(--sage-ink); }
+.mark-learn { box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  :root { --bg: #fff; }
+  .card { box-shadow: none; }
 }

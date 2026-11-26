@@ -9,7 +9,7 @@ export const fmtUsd = (n?: number | null) => (n == null ? "–" : usd.format(n))
 export const fmtPct = (x?: number | null, digits = 0) => (x == null ? "–" : `${(x * 100).toFixed(digits)}%`);
 
 export const demandText: Record<string, string> = {
-  growing: "demand growing",
-  stable: "demand stable",
-  shrinking: "demand falling",
+  growing: "more postings lately",
+  stable: "steady demand",
+  shrinking: "fewer postings lately",
 };

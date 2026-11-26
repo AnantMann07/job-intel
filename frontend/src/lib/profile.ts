@@ -6,11 +6,28 @@
 
 import { useSyncExternalStore } from "react";
 
+export type ApplicationStatus = "saved" | "applied" | "interview" | "offer" | "rejected";
+export type Application = {
+  id: string;
+  role: string;
+  kind: "job" | "internship";
+  location: string;
+  site: string;
+  date: string; // YYYY-MM-DD, when it was added
+  status: ApplicationStatus;
+  note?: string;
+};
+
 export type Profile = {
   skills: string[];
   source: "resume" | "typed" | null;
   filename?: string | null;
   currentRole?: string | null;
+  learned?: string[]; // skills ticked off on a roadmap (also in `skills`)
+  applications?: Application[];
+  theme?: "light" | "dark" | "system";
+  discovery?: { answers: Record<string, string | string[]>; skills: string[]; saved: string[]; date: string };
+  updatedAt?: number; // ms; decides which copy wins when syncing with an account
 };
 
 const KEY = "jobintel.profile.v1";
@@ -47,8 +64,13 @@ function subscribe(callback: () => void) {
   };
 }
 
-export function setProfile(profile: Profile) {
-  const clean: Profile = { ...profile, skills: uniqueSkills(profile.skills) };
+export function setProfile(profile: Profile, options: { fromCloud?: boolean } = {}) {
+  const clean: Profile = {
+    ...profile,
+    skills: uniqueSkills(profile.skills),
+    learned: uniqueSkills(profile.learned ?? []),
+    updatedAt: options.fromCloud ? profile.updatedAt : Date.now(),
+  };
   memory = clean;
   try {
     window.localStorage.setItem(KEY, JSON.stringify(clean));
@@ -56,6 +78,20 @@ export function setProfile(profile: Profile) {
     /* private mode: keep it in memory */
   }
   listeners.forEach((l) => l());
+}
+
+/** The profile as it is right now (outside React). */
+export function getProfile(): Profile {
+  return typeof window === "undefined" ? EMPTY : read();
+}
+
+/** Change part of the profile, e.g. updateProfile((p) => ({ ...p, skills: [...p.skills, "sql"] })). */
+export function updateProfile(change: (p: Profile) => Profile) {
+  setProfile(change(getProfile()));
+}
+
+export function clearProfile() {
+  setProfile({ ...EMPTY, updatedAt: 0 }, { fromCloud: true });
 }
 
 export function useProfile(): Profile {
@@ -79,3 +115,13 @@ export function uniqueSkills(skills: string[]): string[] {
 export function parseSkillText(text: string): string[] {
   return uniqueSkills(text.split(/[,;\n]/));
 }
+
+/** Save or unsave a career from Career Discovery. */
+export function toggleSaved(id: string) {
+  updateProfile((p) => {
+    const d = p.discovery ?? { answers: {}, skills: [], saved: [], date: "" };
+    const saved = d.saved.includes(id) ? d.saved.filter((x) => x !== id) : [...d.saved, id];
+    return { ...p, discovery: { ...d, saved } };
+  });
+}
+

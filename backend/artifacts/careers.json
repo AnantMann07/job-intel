@@ -1,0 +1,3244 @@
+{
+ "categories": [
+  "Data & Analytics",
+  "Software & Cloud",
+  "Education",
+  "Marketing",
+  "Creative & Design",
+  "Emerging Technology",
+  "Research & Environment",
+  "Business & Operations"
+ ],
+ "strengths": [
+  "communication",
+  "teaching",
+  "writing",
+  "research",
+  "problem solving",
+  "leadership",
+  "organisation",
+  "creativity",
+  "design thinking",
+  "empathy",
+  "attention to detail",
+  "presentation",
+  "project management",
+  "statistics"
+ ],
+ "careers": [
+  {
+   "id": "data-analyst",
+   "title": "Data Analyst",
+   "source": "postings",
+   "category": "Data & Analytics",
+   "work_with": [
+    "data",
+    "people"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.35,
+   "description": "Turns business data into reports, dashboards and answers that help teams decide what to do.",
+   "involves": [
+    "Clean and combine data from different sources",
+    "Build dashboards and regular reports",
+    "Explain findings to non-technical teams"
+   ],
+   "education": "Any bachelor's degree with strong numbers work (commerce, economics, statistics, engineering, science). A portfolio of analyses matters more than the degree.",
+   "opportunities": "Entry-level friendly. Leads to senior analyst, analytics manager, data scientist or product analyst roles.",
+   "projects": [
+    "Analyse a public dataset (e.g. city bike trips) and publish a one-page dashboard",
+    "Write SQL queries that answer five business questions about a sample sales database"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.4,
+    "C": 0.7
+   },
+   "riasec_code": "ICE",
+   "skills": [
+    {
+     "skill": "sql",
+     "weight": 1.0
+    },
+    {
+     "skill": "excel",
+     "weight": 0.694
+    },
+    {
+     "skill": "python",
+     "weight": 0.602
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.52
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.427
+    },
+    {
+     "skill": "r",
+     "weight": 0.322
+    },
+    {
+     "skill": "sas",
+     "weight": 0.15
+    },
+    {
+     "skill": "powerpoint",
+     "weight": 0.148
+    },
+    {
+     "skill": "word",
+     "weight": 0.14
+    },
+    {
+     "skill": "sap",
+     "weight": 0.119
+    },
+    {
+     "skill": "azure",
+     "weight": 0.115
+    },
+    {
+     "skill": "oracle",
+     "weight": 0.11
+    },
+    {
+     "skill": "aws",
+     "weight": 0.095
+    },
+    {
+     "skill": "sql server",
+     "weight": 0.092
+    },
+    {
+     "skill": "go",
+     "weight": 0.085
+    },
+    {
+     "skill": "flow",
+     "weight": 0.078
+    },
+    {
+     "skill": "looker",
+     "weight": 0.074
+    },
+    {
+     "skill": "snowflake",
+     "weight": 0.073
+    },
+    {
+     "skill": "vba",
+     "weight": 0.072
+    },
+    {
+     "skill": "qlik",
+     "weight": 0.062
+    }
+   ],
+   "postings": 226782,
+   "median_salary_usd": 88265,
+   "demand": "stable",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "data-engineer",
+   "title": "Data Engineer",
+   "source": "postings",
+   "category": "Data & Analytics",
+   "work_with": [
+    "technology",
+    "data"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.35,
+   "description": "Builds the pipelines and storage that move data reliably from where it is created to where it is used.",
+   "involves": [
+    "Build and schedule data pipelines",
+    "Design data warehouses and tables",
+    "Keep data fast, correct and secure"
+   ],
+   "education": "Bachelor's in computer science, IT or engineering, or equivalent experience.",
+   "opportunities": "High demand. Leads to senior/lead data engineer, data architect or platform roles.",
+   "projects": [
+    "Build a daily pipeline that downloads a public dataset, cleans it and loads it into a database",
+    "Set up a small warehouse and a scheduled job with Airflow"
+   ],
+   "riasec": {
+    "R": 1.0,
+    "I": 0.7,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "RIC",
+   "skills": [
+    {
+     "skill": "sql",
+     "weight": 1.0
+    },
+    {
+     "skill": "python",
+     "weight": 0.957
+    },
+    {
+     "skill": "aws",
+     "weight": 0.569
+    },
+    {
+     "skill": "azure",
+     "weight": 0.543
+    },
+    {
+     "skill": "spark",
+     "weight": 0.491
+    },
+    {
+     "skill": "java",
+     "weight": 0.32
+    },
+    {
+     "skill": "kafka",
+     "weight": 0.272
+    },
+    {
+     "skill": "scala",
+     "weight": 0.264
+    },
+    {
+     "skill": "hadoop",
+     "weight": 0.259
+    },
+    {
+     "skill": "snowflake",
+     "weight": 0.252
+    },
+    {
+     "skill": "databricks",
+     "weight": 0.249
+    },
+    {
+     "skill": "airflow",
+     "weight": 0.238
+    },
+    {
+     "skill": "nosql",
+     "weight": 0.204
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.198
+    },
+    {
+     "skill": "redshift",
+     "weight": 0.174
+    },
+    {
+     "skill": "git",
+     "weight": 0.167
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.163
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.162
+    },
+    {
+     "skill": "sql server",
+     "weight": 0.15
+    },
+    {
+     "skill": "pyspark",
+     "weight": 0.144
+    }
+   ],
+   "postings": 220414,
+   "median_salary_usd": 129644,
+   "demand": "stable",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "data-scientist",
+   "title": "Data Scientist",
+   "source": "postings",
+   "category": "Data & Analytics",
+   "work_with": [
+    "data",
+    "technology",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote",
+    "lab"
+   ],
+   "structure": 0.6,
+   "description": "Uses statistics and machine learning to find patterns and build models that predict or explain things.",
+   "involves": [
+    "Explore data and test hypotheses",
+    "Train and evaluate models",
+    "Communicate what the model can and can't do"
+   ],
+   "education": "Bachelor's in a quantitative field; many roles prefer a master's. Strong projects can substitute.",
+   "opportunities": "Leads to senior/lead data scientist, ML engineer or research roles.",
+   "projects": [
+    "Predict house prices with a regression model and explain the main drivers",
+    "Build a churn model and present it as a short report"
+   ],
+   "riasec": {
+    "R": 0.7,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "IRC",
+   "skills": [
+    {
+     "skill": "python",
+     "weight": 1.0
+    },
+    {
+     "skill": "sql",
+     "weight": 0.69
+    },
+    {
+     "skill": "r",
+     "weight": 0.521
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.25
+    },
+    {
+     "skill": "aws",
+     "weight": 0.24
+    },
+    {
+     "skill": "spark",
+     "weight": 0.221
+    },
+    {
+     "skill": "azure",
+     "weight": 0.194
+    },
+    {
+     "skill": "tensorflow",
+     "weight": 0.175
+    },
+    {
+     "skill": "excel",
+     "weight": 0.148
+    },
+    {
+     "skill": "pytorch",
+     "weight": 0.14
+    },
+    {
+     "skill": "java",
+     "weight": 0.139
+    },
+    {
+     "skill": "hadoop",
+     "weight": 0.137
+    },
+    {
+     "skill": "pandas",
+     "weight": 0.133
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.13
+    },
+    {
+     "skill": "sas",
+     "weight": 0.129
+    },
+    {
+     "skill": "git",
+     "weight": 0.108
+    },
+    {
+     "skill": "scikit-learn",
+     "weight": 0.107
+    },
+    {
+     "skill": "numpy",
+     "weight": 0.096
+    },
+    {
+     "skill": "scala",
+     "weight": 0.094
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.08
+    }
+   ],
+   "postings": 204773,
+   "median_salary_usd": 124800,
+   "demand": "stable",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "software-engineer",
+   "title": "Software Engineer",
+   "source": "postings",
+   "category": "Software & Cloud",
+   "work_with": [
+    "technology",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.5,
+   "description": "Designs, builds and maintains software applications and services.",
+   "involves": [
+    "Write and review code",
+    "Design features with product teams",
+    "Fix bugs and improve performance"
+   ],
+   "education": "Bachelor's in computer science or related, or a strong project portfolio.",
+   "opportunities": "Very broad market. Leads to senior engineer, tech lead or architect roles.",
+   "projects": [
+    "Build and deploy a small full-stack app with login",
+    "Contribute a fix to an open-source project"
+   ],
+   "riasec": {
+    "R": 1.0,
+    "I": 0.7,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "RIC",
+   "skills": [
+    {
+     "skill": "python",
+     "weight": 1.0
+    },
+    {
+     "skill": "sql",
+     "weight": 0.802
+    },
+    {
+     "skill": "java",
+     "weight": 0.71
+    },
+    {
+     "skill": "aws",
+     "weight": 0.696
+    },
+    {
+     "skill": "azure",
+     "weight": 0.438
+    },
+    {
+     "skill": "kubernetes",
+     "weight": 0.406
+    },
+    {
+     "skill": "docker",
+     "weight": 0.394
+    },
+    {
+     "skill": "javascript",
+     "weight": 0.361
+    },
+    {
+     "skill": "linux",
+     "weight": 0.334
+    },
+    {
+     "skill": "git",
+     "weight": 0.293
+    },
+    {
+     "skill": "spark",
+     "weight": 0.274
+    },
+    {
+     "skill": "kafka",
+     "weight": 0.269
+    },
+    {
+     "skill": "react",
+     "weight": 0.263
+    },
+    {
+     "skill": "go",
+     "weight": 0.263
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.22
+    },
+    {
+     "skill": "c#",
+     "weight": 0.216
+    },
+    {
+     "skill": "c++",
+     "weight": 0.216
+    },
+    {
+     "skill": "nosql",
+     "weight": 0.2
+    },
+    {
+     "skill": "typescript",
+     "weight": 0.193
+    },
+    {
+     "skill": "oracle",
+     "weight": 0.189
+    }
+   ],
+   "postings": 40791,
+   "median_salary_usd": 100000,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "business-analyst",
+   "title": "Business Analyst",
+   "source": "postings",
+   "category": "Business & Operations",
+   "work_with": [
+    "people",
+    "data",
+    "ideas"
+   ],
+   "environments": [
+    "office"
+   ],
+   "structure": 0.35,
+   "description": "Works between business teams and technology to define problems, gather requirements and measure results.",
+   "involves": [
+    "Interview teams to understand needs",
+    "Write requirements and process maps",
+    "Track results with simple data analysis"
+   ],
+   "education": "Bachelor's in business, commerce, engineering or similar. Certifications like ECBA help but are optional.",
+   "opportunities": "Leads to product manager, consultant or operations lead roles.",
+   "projects": [
+    "Map an everyday process (e.g. college admissions) and propose three improvements",
+    "Build a requirements document and a simple KPI dashboard for a mock app"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.4,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 1.0,
+    "C": 0.7
+   },
+   "riasec_code": "ECI",
+   "skills": [
+    {
+     "skill": "excel",
+     "weight": 1.0
+    },
+    {
+     "skill": "sql",
+     "weight": 0.832
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.42
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.405
+    },
+    {
+     "skill": "python",
+     "weight": 0.404
+    },
+    {
+     "skill": "powerpoint",
+     "weight": 0.28
+    },
+    {
+     "skill": "word",
+     "weight": 0.224
+    },
+    {
+     "skill": "sap",
+     "weight": 0.213
+    },
+    {
+     "skill": "r",
+     "weight": 0.204
+    },
+    {
+     "skill": "flow",
+     "weight": 0.148
+    },
+    {
+     "skill": "oracle",
+     "weight": 0.126
+    },
+    {
+     "skill": "azure",
+     "weight": 0.122
+    },
+    {
+     "skill": "jira",
+     "weight": 0.111
+    },
+    {
+     "skill": "go",
+     "weight": 0.108
+    },
+    {
+     "skill": "sas",
+     "weight": 0.097
+    },
+    {
+     "skill": "aws",
+     "weight": 0.086
+    },
+    {
+     "skill": "sql server",
+     "weight": 0.079
+    },
+    {
+     "skill": "vba",
+     "weight": 0.078
+    },
+    {
+     "skill": "outlook",
+     "weight": 0.073
+    },
+    {
+     "skill": "java",
+     "weight": 0.067
+    }
+   ],
+   "postings": 39173,
+   "median_salary_usd": 85000,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "machine-learning-engineer",
+   "title": "Machine Learning Engineer",
+   "source": "postings",
+   "category": "Software & Cloud",
+   "work_with": [
+    "technology",
+    "data"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.5,
+   "description": "Takes machine learning models from notebooks into reliable products that real users depend on.",
+   "involves": [
+    "Train, package and deploy models",
+    "Monitor models in production",
+    "Work with data scientists and software engineers"
+   ],
+   "education": "Bachelor's or master's in computer science or a related field.",
+   "opportunities": "Fast-growing. Leads to senior ML engineer, MLOps or AI engineering roles.",
+   "projects": [
+    "Serve a trained model behind a small API and add basic monitoring",
+    "Build an image classifier and deploy it as a web demo"
+   ],
+   "riasec": {
+    "R": 0.7,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "IRC",
+   "skills": [
+    {
+     "skill": "python",
+     "weight": 1.0
+    },
+    {
+     "skill": "pytorch",
+     "weight": 0.457
+    },
+    {
+     "skill": "tensorflow",
+     "weight": 0.445
+    },
+    {
+     "skill": "aws",
+     "weight": 0.379
+    },
+    {
+     "skill": "sql",
+     "weight": 0.355
+    },
+    {
+     "skill": "spark",
+     "weight": 0.279
+    },
+    {
+     "skill": "azure",
+     "weight": 0.27
+    },
+    {
+     "skill": "docker",
+     "weight": 0.259
+    },
+    {
+     "skill": "java",
+     "weight": 0.241
+    },
+    {
+     "skill": "scikit-learn",
+     "weight": 0.214
+    },
+    {
+     "skill": "kubernetes",
+     "weight": 0.21
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.169
+    },
+    {
+     "skill": "pandas",
+     "weight": 0.168
+    },
+    {
+     "skill": "git",
+     "weight": 0.168
+    },
+    {
+     "skill": "r",
+     "weight": 0.16
+    },
+    {
+     "skill": "keras",
+     "weight": 0.145
+    },
+    {
+     "skill": "numpy",
+     "weight": 0.134
+    },
+    {
+     "skill": "c++",
+     "weight": 0.127
+    },
+    {
+     "skill": "hadoop",
+     "weight": 0.122
+    },
+    {
+     "skill": "scala",
+     "weight": 0.117
+    }
+   ],
+   "postings": 12515,
+   "median_salary_usd": 106900,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "cloud-engineer",
+   "title": "Cloud Engineer",
+   "source": "postings",
+   "category": "Software & Cloud",
+   "work_with": [
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.3,
+   "description": "Sets up and runs the cloud infrastructure that applications and data platforms live on.",
+   "involves": [
+    "Configure cloud services and networks",
+    "Automate infrastructure with code",
+    "Keep systems available and costs under control"
+   ],
+   "education": "Bachelor's in IT or computer science; cloud certifications (AWS, Azure, GCP) are valued.",
+   "opportunities": "Strong demand. Leads to cloud architect, DevOps or security roles.",
+   "projects": [
+    "Deploy a web app on a cloud free tier using infrastructure as code",
+    "Set up monitoring and alerts for a small service"
+   ],
+   "riasec": {
+    "R": 1.0,
+    "I": 0.4,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.7
+   },
+   "riasec_code": "RCI",
+   "skills": [
+    {
+     "skill": "python",
+     "weight": 1.0
+    },
+    {
+     "skill": "aws",
+     "weight": 0.992
+    },
+    {
+     "skill": "azure",
+     "weight": 0.967
+    },
+    {
+     "skill": "sql",
+     "weight": 0.731
+    },
+    {
+     "skill": "linux",
+     "weight": 0.551
+    },
+    {
+     "skill": "kubernetes",
+     "weight": 0.483
+    },
+    {
+     "skill": "terraform",
+     "weight": 0.477
+    },
+    {
+     "skill": "windows",
+     "weight": 0.39
+    },
+    {
+     "skill": "java",
+     "weight": 0.389
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.386
+    },
+    {
+     "skill": "docker",
+     "weight": 0.347
+    },
+    {
+     "skill": "go",
+     "weight": 0.289
+    },
+    {
+     "skill": "excel",
+     "weight": 0.272
+    },
+    {
+     "skill": "ansible",
+     "weight": 0.256
+    },
+    {
+     "skill": "javascript",
+     "weight": 0.247
+    },
+    {
+     "skill": "git",
+     "weight": 0.23
+    },
+    {
+     "skill": "powershell",
+     "weight": 0.219
+    },
+    {
+     "skill": "jenkins",
+     "weight": 0.206
+    },
+    {
+     "skill": "vmware",
+     "weight": 0.194
+    },
+    {
+     "skill": "spark",
+     "weight": 0.194
+    }
+   ],
+   "postings": 11438,
+   "median_salary_usd": 88400,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "devops-engineer",
+   "title": "DevOps Engineer",
+   "source": "postings",
+   "category": "Software & Cloud",
+   "work_with": [
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.3,
+   "description": "Automates how software is built, tested and released, and keeps it running smoothly.",
+   "involves": [
+    "Build CI/CD pipelines",
+    "Manage containers and servers",
+    "Respond to incidents"
+   ],
+   "education": "Bachelor's in IT or computer science, or equivalent experience.",
+   "opportunities": "Leads to SRE, platform engineering or cloud architecture.",
+   "projects": [
+    "Set up a CI pipeline that tests and deploys a small app",
+    "Containerise an app with Docker and run it on Kubernetes locally"
+   ],
+   "riasec": {
+    "R": 1.0,
+    "I": 0.4,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.7
+   },
+   "riasec_code": "RCI",
+   "skills": [
+    {
+     "skill": "python",
+     "weight": 1.0
+    },
+    {
+     "skill": "aws",
+     "weight": 0.901
+    },
+    {
+     "skill": "kubernetes",
+     "weight": 0.776
+    },
+    {
+     "skill": "azure",
+     "weight": 0.747
+    },
+    {
+     "skill": "terraform",
+     "weight": 0.729
+    },
+    {
+     "skill": "docker",
+     "weight": 0.593
+    },
+    {
+     "skill": "linux",
+     "weight": 0.527
+    },
+    {
+     "skill": "sql",
+     "weight": 0.496
+    },
+    {
+     "skill": "ansible",
+     "weight": 0.423
+    },
+    {
+     "skill": "jenkins",
+     "weight": 0.379
+    },
+    {
+     "skill": "java",
+     "weight": 0.375
+    },
+    {
+     "skill": "git",
+     "weight": 0.366
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.361
+    },
+    {
+     "skill": "kafka",
+     "weight": 0.344
+    },
+    {
+     "skill": "bash",
+     "weight": 0.291
+    },
+    {
+     "skill": "spark",
+     "weight": 0.289
+    },
+    {
+     "skill": "go",
+     "weight": 0.236
+    },
+    {
+     "skill": "airflow",
+     "weight": 0.224
+    },
+    {
+     "skill": "github",
+     "weight": 0.218
+    },
+    {
+     "skill": "gitlab",
+     "weight": 0.205
+    }
+   ],
+   "postings": 5611,
+   "median_salary_usd": 89100,
+   "demand": "stable",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "analytics-engineer",
+   "title": "Analytics Engineer",
+   "source": "postings",
+   "category": "Data & Analytics",
+   "work_with": [
+    "data",
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.35,
+   "description": "Sits between data engineering and analysis: turns raw tables into clean, tested models analysts can trust.",
+   "involves": [
+    "Write and test SQL transformations",
+    "Document data models",
+    "Support analysts and dashboards"
+   ],
+   "education": "Bachelor's in a technical or quantitative field.",
+   "opportunities": "Growing role. Leads to senior analytics engineer or data engineering.",
+   "projects": [
+    "Model a raw e-commerce dataset into clean tables with tests",
+    "Document a small data model so a newcomer can use it"
+   ],
+   "riasec": {
+    "R": 0.4,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.7
+   },
+   "riasec_code": "ICR",
+   "skills": [
+    {
+     "skill": "sql",
+     "weight": 1.0
+    },
+    {
+     "skill": "python",
+     "weight": 0.81
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.384
+    },
+    {
+     "skill": "snowflake",
+     "weight": 0.337
+    },
+    {
+     "skill": "aws",
+     "weight": 0.329
+    },
+    {
+     "skill": "airflow",
+     "weight": 0.268
+    },
+    {
+     "skill": "looker",
+     "weight": 0.266
+    },
+    {
+     "skill": "azure",
+     "weight": 0.223
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.218
+    },
+    {
+     "skill": "spark",
+     "weight": 0.205
+    },
+    {
+     "skill": "r",
+     "weight": 0.193
+    },
+    {
+     "skill": "bigquery",
+     "weight": 0.186
+    },
+    {
+     "skill": "git",
+     "weight": 0.177
+    },
+    {
+     "skill": "redshift",
+     "weight": 0.162
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.133
+    },
+    {
+     "skill": "java",
+     "weight": 0.122
+    },
+    {
+     "skill": "databricks",
+     "weight": 0.113
+    },
+    {
+     "skill": "hadoop",
+     "weight": 0.102
+    },
+    {
+     "skill": "excel",
+     "weight": 0.097
+    },
+    {
+     "skill": "scala",
+     "weight": 0.09
+    }
+   ],
+   "postings": 4099,
+   "median_salary_usd": 139246,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "bi-developer",
+   "title": "BI Developer",
+   "source": "postings",
+   "category": "Data & Analytics",
+   "work_with": [
+    "data",
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.3,
+   "description": "Builds the data models and dashboards that a company uses for everyday reporting.",
+   "involves": [
+    "Model data for reporting",
+    "Build and maintain dashboards",
+    "Automate regular reports"
+   ],
+   "education": "Bachelor's in IT, commerce or engineering. Tool certifications (Power BI, Tableau) help.",
+   "opportunities": "Leads to BI lead, analytics engineer or data engineer roles.",
+   "projects": [
+    "Build a Power BI report with a proper star-schema model",
+    "Automate a weekly report from raw CSV files"
+   ],
+   "riasec": {
+    "R": 0.4,
+    "I": 0.7,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 1.0
+   },
+   "riasec_code": "CIR",
+   "skills": [
+    {
+     "skill": "sql",
+     "weight": 1.0
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.563
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.549
+    },
+    {
+     "skill": "python",
+     "weight": 0.451
+    },
+    {
+     "skill": "azure",
+     "weight": 0.272
+    },
+    {
+     "skill": "aws",
+     "weight": 0.224
+    },
+    {
+     "skill": "sql server",
+     "weight": 0.215
+    },
+    {
+     "skill": "excel",
+     "weight": 0.209
+    },
+    {
+     "skill": "dax",
+     "weight": 0.197
+    },
+    {
+     "skill": "ssis",
+     "weight": 0.182
+    },
+    {
+     "skill": "oracle",
+     "weight": 0.172
+    },
+    {
+     "skill": "r",
+     "weight": 0.171
+    },
+    {
+     "skill": "ssrs",
+     "weight": 0.148
+    },
+    {
+     "skill": "redshift",
+     "weight": 0.138
+    },
+    {
+     "skill": "snowflake",
+     "weight": 0.138
+    },
+    {
+     "skill": "looker",
+     "weight": 0.085
+    },
+    {
+     "skill": "java",
+     "weight": 0.084
+    },
+    {
+     "skill": "qlik",
+     "weight": 0.071
+    },
+    {
+     "skill": "t-sql",
+     "weight": 0.069
+    },
+    {
+     "skill": "sap",
+     "weight": 0.067
+    }
+   ],
+   "postings": 2794,
+   "median_salary_usd": 83200,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "data-architect",
+   "title": "Data Architect",
+   "source": "postings",
+   "category": "Data & Analytics",
+   "work_with": [
+    "data",
+    "technology",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.45,
+   "description": "Designs how an organisation's data is stored, connected and governed.",
+   "involves": [
+    "Design data platforms and models",
+    "Set standards and governance",
+    "Guide engineering teams"
+   ],
+   "education": "Bachelor's in computer science or IT plus several years of data engineering experience.",
+   "opportunities": "Senior role, usually reached from data engineering.",
+   "projects": [
+    "Design the data model for a small online store and justify the choices"
+   ],
+   "riasec": {
+    "R": 0.7,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "IRC",
+   "skills": [
+    {
+     "skill": "sql",
+     "weight": 1.0
+    },
+    {
+     "skill": "azure",
+     "weight": 0.847
+    },
+    {
+     "skill": "python",
+     "weight": 0.749
+    },
+    {
+     "skill": "aws",
+     "weight": 0.603
+    },
+    {
+     "skill": "spark",
+     "weight": 0.46
+    },
+    {
+     "skill": "databricks",
+     "weight": 0.38
+    },
+    {
+     "skill": "hadoop",
+     "weight": 0.295
+    },
+    {
+     "skill": "nosql",
+     "weight": 0.292
+    },
+    {
+     "skill": "java",
+     "weight": 0.283
+    },
+    {
+     "skill": "gcp",
+     "weight": 0.279
+    },
+    {
+     "skill": "kafka",
+     "weight": 0.277
+    },
+    {
+     "skill": "snowflake",
+     "weight": 0.271
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.238
+    },
+    {
+     "skill": "oracle",
+     "weight": 0.216
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.216
+    },
+    {
+     "skill": "scala",
+     "weight": 0.194
+    },
+    {
+     "skill": "redshift",
+     "weight": 0.176
+    },
+    {
+     "skill": "flow",
+     "weight": 0.173
+    },
+    {
+     "skill": "sql server",
+     "weight": 0.171
+    },
+    {
+     "skill": "r",
+     "weight": 0.136
+    }
+   ],
+   "postings": 2076,
+   "median_salary_usd": 163782,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "product-analyst",
+   "title": "Product Analyst",
+   "source": "postings",
+   "category": "Data & Analytics",
+   "work_with": [
+    "data",
+    "people",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.45,
+   "description": "Studies how people use a product and helps teams decide what to build next.",
+   "involves": [
+    "Analyse product usage and funnels",
+    "Design and read A/B tests",
+    "Share insights with product managers"
+   ],
+   "education": "Bachelor's in any quantitative field.",
+   "opportunities": "Leads to senior product analyst, product manager or data scientist.",
+   "projects": [
+    "Analyse a public app-usage dataset and find where users drop off",
+    "Design an A/B test plan for a feature idea"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.7,
+    "C": 0.4
+   },
+   "riasec_code": "IEC",
+   "skills": [
+    {
+     "skill": "sql",
+     "weight": 1.0
+    },
+    {
+     "skill": "python",
+     "weight": 0.592
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.561
+    },
+    {
+     "skill": "excel",
+     "weight": 0.409
+    },
+    {
+     "skill": "r",
+     "weight": 0.271
+    },
+    {
+     "skill": "looker",
+     "weight": 0.212
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.176
+    },
+    {
+     "skill": "go",
+     "weight": 0.15
+    },
+    {
+     "skill": "bigquery",
+     "weight": 0.147
+    },
+    {
+     "skill": "jira",
+     "weight": 0.145
+    },
+    {
+     "skill": "powerpoint",
+     "weight": 0.11
+    },
+    {
+     "skill": "word",
+     "weight": 0.084
+    },
+    {
+     "skill": "confluence",
+     "weight": 0.075
+    },
+    {
+     "skill": "flow",
+     "weight": 0.069
+    },
+    {
+     "skill": "snowflake",
+     "weight": 0.067
+    },
+    {
+     "skill": "aws",
+     "weight": 0.056
+    },
+    {
+     "skill": "pandas",
+     "weight": 0.054
+    },
+    {
+     "skill": "sap",
+     "weight": 0.053
+    },
+    {
+     "skill": "redshift",
+     "weight": 0.047
+    },
+    {
+     "skill": "postgresql",
+     "weight": 0.043
+    }
+   ],
+   "postings": 1722,
+   "median_salary_usd": 71400,
+   "demand": "growing",
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "school-teacher",
+   "source": "curated",
+   "title": "School Teacher",
+   "category": "Education",
+   "work_with": [
+    "people",
+    "ideas"
+   ],
+   "environments": [
+    "classroom"
+   ],
+   "structure": 0.45,
+   "description": "Teaches a subject to school students and helps each of them learn and grow.",
+   "involves": [
+    "Plan and teach lessons",
+    "Assess students and give feedback",
+    "Work with parents and colleagues"
+   ],
+   "education": "A bachelor's degree in the subject plus a teaching qualification (B.Ed in India); CTET/TET for many schools.",
+   "opportunities": "Steady demand in every city. Leads to head of department, curriculum design or school leadership.",
+   "projects": [
+    "Teach a short online lesson to friends and collect feedback",
+    "Create a lesson plan with an activity and a quick quiz"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.0,
+    "A": 0.7,
+    "S": 1.0,
+    "E": 0.4,
+    "C": 0.0
+   },
+   "riasec_code": "SAE",
+   "skills": [
+    {
+     "skill": "teaching",
+     "weight": 1.0
+    },
+    {
+     "skill": "communication",
+     "weight": 1.0
+    },
+    {
+     "skill": "lesson planning",
+     "weight": 1.0
+    },
+    {
+     "skill": "classroom management",
+     "weight": 1.0
+    },
+    {
+     "skill": "subject knowledge",
+     "weight": 0.667
+    },
+    {
+     "skill": "empathy",
+     "weight": 0.667
+    },
+    {
+     "skill": "presentation",
+     "weight": 0.667
+    },
+    {
+     "skill": "organisation",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "instructional-designer",
+   "source": "curated",
+   "title": "Instructional Designer",
+   "category": "Education",
+   "work_with": [
+    "ideas",
+    "people",
+    "creative"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.55,
+   "description": "Designs courses and training so people learn efficiently, often online.",
+   "involves": [
+    "Work with experts to define what learners need",
+    "Design course structure and activities",
+    "Build and test e-learning modules"
+   ],
+   "education": "Bachelor's in education, psychology, English or a related field; courses in instructional design help.",
+   "opportunities": "Companies, ed-tech and universities. Leads to learning experience design or L&D lead.",
+   "projects": [
+    "Turn a textbook chapter into a 15-minute interactive module",
+    "Design a short course outline with learning goals and assessments"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.4,
+    "A": 1.0,
+    "S": 0.7,
+    "E": 0.0,
+    "C": 0.0
+   },
+   "riasec_code": "ASI",
+   "skills": [
+    {
+     "skill": "instructional design",
+     "weight": 1.0
+    },
+    {
+     "skill": "curriculum design",
+     "weight": 1.0
+    },
+    {
+     "skill": "writing",
+     "weight": 0.667
+    },
+    {
+     "skill": "e-learning authoring",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 0.667
+    },
+    {
+     "skill": "lms",
+     "weight": 0.333
+    },
+    {
+     "skill": "teaching",
+     "weight": 0.333
+    },
+    {
+     "skill": "project management",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "learning-experience-designer",
+   "source": "curated",
+   "title": "Learning Experience Designer",
+   "category": "Education",
+   "work_with": [
+    "creative",
+    "people",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote",
+    "studio"
+   ],
+   "structure": 0.7,
+   "description": "Designs engaging learning journeys using ideas from UX design and how people learn.",
+   "involves": [
+    "Research learners and their goals",
+    "Prototype learning experiences",
+    "Test with learners and improve"
+   ],
+   "education": "Bachelor's in design, education or psychology; a portfolio is essential.",
+   "opportunities": "Ed-tech and corporate learning teams.",
+   "projects": [
+    "Redesign an existing online course page and test it with three people"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.4,
+    "A": 1.0,
+    "S": 0.7,
+    "E": 0.0,
+    "C": 0.0
+   },
+   "riasec_code": "ASI",
+   "skills": [
+    {
+     "skill": "instructional design",
+     "weight": 1.0
+    },
+    {
+     "skill": "user research",
+     "weight": 0.667
+    },
+    {
+     "skill": "prototyping",
+     "weight": 0.667
+    },
+    {
+     "skill": "figma",
+     "weight": 0.667
+    },
+    {
+     "skill": "storytelling",
+     "weight": 0.667
+    },
+    {
+     "skill": "writing",
+     "weight": 0.667
+    },
+    {
+     "skill": "design thinking",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "educational-technology-specialist",
+   "source": "curated",
+   "title": "Educational Technology Specialist",
+   "category": "Education",
+   "work_with": [
+    "technology",
+    "people"
+   ],
+   "environments": [
+    "classroom",
+    "office"
+   ],
+   "structure": 0.4,
+   "description": "Helps schools and teachers choose and use technology for teaching.",
+   "involves": [
+    "Set up learning platforms",
+    "Train teachers on digital tools",
+    "Evaluate which tools improve learning"
+   ],
+   "education": "Bachelor's in education or IT; experience in schools helps.",
+   "opportunities": "Schools, colleges and ed-tech companies.",
+   "projects": [
+    "Set up a class on a free LMS with quizzes and a progress report"
+   ],
+   "riasec": {
+    "R": 0.7,
+    "I": 0.0,
+    "A": 0.0,
+    "S": 1.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "SRC",
+   "skills": [
+    {
+     "skill": "lms",
+     "weight": 1.0
+    },
+    {
+     "skill": "teaching",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 0.667
+    },
+    {
+     "skill": "google workspace",
+     "weight": 0.667
+    },
+    {
+     "skill": "troubleshooting",
+     "weight": 0.667
+    },
+    {
+     "skill": "training",
+     "weight": 0.667
+    },
+    {
+     "skill": "excel",
+     "weight": 0.333
+    },
+    {
+     "skill": "project management",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "digital-marketing-specialist",
+   "source": "curated",
+   "title": "Digital Marketing Specialist",
+   "category": "Marketing",
+   "work_with": [
+    "people",
+    "data",
+    "creative"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.55,
+   "description": "Plans and runs online campaigns across search, social media and email.",
+   "involves": [
+    "Plan campaigns and content",
+    "Run ads and email campaigns",
+    "Measure results and adjust"
+   ],
+   "education": "Any bachelor's degree; Google and Meta marketing certificates are widely used.",
+   "opportunities": "Every industry hires. Leads to marketing manager or growth roles.",
+   "projects": [
+    "Grow a small Instagram page for a cause and report what worked",
+    "Run a tiny ad campaign with a fixed budget and analyse the results"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.0,
+    "A": 0.7,
+    "S": 0.0,
+    "E": 1.0,
+    "C": 0.4
+   },
+   "riasec_code": "EAC",
+   "skills": [
+    {
+     "skill": "social media marketing",
+     "weight": 1.0
+    },
+    {
+     "skill": "google analytics",
+     "weight": 0.667
+    },
+    {
+     "skill": "seo",
+     "weight": 0.667
+    },
+    {
+     "skill": "content writing",
+     "weight": 0.667
+    },
+    {
+     "skill": "google ads",
+     "weight": 0.667
+    },
+    {
+     "skill": "email marketing",
+     "weight": 0.667
+    },
+    {
+     "skill": "excel",
+     "weight": 0.333
+    },
+    {
+     "skill": "communication",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "seo-specialist",
+   "source": "curated",
+   "title": "SEO Specialist",
+   "category": "Marketing",
+   "work_with": [
+    "data",
+    "technology",
+    "creative"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.4,
+   "description": "Helps websites appear higher in search results so more of the right people find them.",
+   "involves": [
+    "Research what people search for",
+    "Fix technical issues on websites",
+    "Plan and improve content"
+   ],
+   "education": "Any bachelor's degree; hands-on results matter most.",
+   "opportunities": "Agencies, e-commerce and media. Leads to content or growth marketing lead.",
+   "projects": [
+    "Audit a small website's SEO and fix the top five issues"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.7,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.4,
+    "C": 1.0
+   },
+   "riasec_code": "CIE",
+   "skills": [
+    {
+     "skill": "seo",
+     "weight": 1.0
+    },
+    {
+     "skill": "google analytics",
+     "weight": 1.0
+    },
+    {
+     "skill": "content writing",
+     "weight": 0.667
+    },
+    {
+     "skill": "html",
+     "weight": 0.333
+    },
+    {
+     "skill": "excel",
+     "weight": 0.333
+    },
+    {
+     "skill": "keyword research",
+     "weight": 0.667
+    },
+    {
+     "skill": "attention to detail",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "brand-strategist",
+   "source": "curated",
+   "title": "Brand Strategist",
+   "category": "Marketing",
+   "work_with": [
+    "ideas",
+    "people",
+    "creative"
+   ],
+   "environments": [
+    "office",
+    "studio"
+   ],
+   "structure": 0.7,
+   "description": "Shapes how a company or product is seen: its story, voice and position against competitors.",
+   "involves": [
+    "Research customers and competitors",
+    "Define brand positioning and messaging",
+    "Guide creative teams"
+   ],
+   "education": "Bachelor's in marketing, mass communication, design or business.",
+   "opportunities": "Agencies and in-house brand teams.",
+   "projects": [
+    "Write a brand positioning for a local business and test it with five customers"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.0,
+    "A": 0.7,
+    "S": 0.4,
+    "E": 1.0,
+    "C": 0.0
+   },
+   "riasec_code": "EAS",
+   "skills": [
+    {
+     "skill": "brand strategy",
+     "weight": 1.0
+    },
+    {
+     "skill": "market research",
+     "weight": 0.667
+    },
+    {
+     "skill": "storytelling",
+     "weight": 1.0
+    },
+    {
+     "skill": "communication",
+     "weight": 0.667
+    },
+    {
+     "skill": "presentation",
+     "weight": 0.667
+    },
+    {
+     "skill": "copywriting",
+     "weight": 0.667
+    },
+    {
+     "skill": "creativity",
+     "weight": 0.667
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "marketing-research-analyst",
+   "source": "curated",
+   "title": "Marketing Research Analyst",
+   "category": "Marketing",
+   "work_with": [
+    "data",
+    "people"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.35,
+   "description": "Studies customers and markets to find out what people want and how products are doing.",
+   "involves": [
+    "Design surveys and studies",
+    "Analyse survey and sales data",
+    "Present findings to marketing teams"
+   ],
+   "education": "Bachelor's in marketing, statistics, economics or psychology.",
+   "opportunities": "Research firms, consumer brands. Leads to insights manager.",
+   "projects": [
+    "Run a survey on students' food habits and present three insights with charts"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.4,
+    "C": 0.7
+   },
+   "riasec_code": "ICE",
+   "skills": [
+    {
+     "skill": "market research",
+     "weight": 1.0
+    },
+    {
+     "skill": "survey design",
+     "weight": 1.0
+    },
+    {
+     "skill": "statistics",
+     "weight": 0.667
+    },
+    {
+     "skill": "excel",
+     "weight": 0.667
+    },
+    {
+     "skill": "spss",
+     "weight": 0.333
+    },
+    {
+     "skill": "python",
+     "weight": 0.333
+    },
+    {
+     "skill": "presentation",
+     "weight": 0.667
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "ux-researcher",
+   "source": "curated",
+   "title": "UX Researcher",
+   "category": "Creative & Design",
+   "work_with": [
+    "people",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote",
+    "studio"
+   ],
+   "structure": 0.6,
+   "description": "Finds out how people actually use products, so teams build things that work for them.",
+   "involves": [
+    "Plan and run interviews and usability tests",
+    "Turn observations into clear insights",
+    "Share findings with designers and engineers"
+   ],
+   "education": "Bachelor's in psychology, design, HCI or a social science.",
+   "opportunities": "Tech and product companies. Leads to research lead.",
+   "projects": [
+    "Test a popular app with five people and write up the three biggest problems"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 1.0,
+    "A": 0.7,
+    "S": 0.4,
+    "E": 0.0,
+    "C": 0.0
+   },
+   "riasec_code": "IAS",
+   "skills": [
+    {
+     "skill": "user research",
+     "weight": 1.0
+    },
+    {
+     "skill": "usability testing",
+     "weight": 1.0
+    },
+    {
+     "skill": "survey design",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 0.667
+    },
+    {
+     "skill": "empathy",
+     "weight": 0.667
+    },
+    {
+     "skill": "statistics",
+     "weight": 0.333
+    },
+    {
+     "skill": "figma",
+     "weight": 0.333
+    },
+    {
+     "skill": "writing",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "product-designer",
+   "source": "curated",
+   "title": "Product Designer",
+   "category": "Creative & Design",
+   "work_with": [
+    "creative",
+    "people",
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "remote",
+    "studio"
+   ],
+   "structure": 0.7,
+   "description": "Designs how digital products look and work, from first sketch to the final screens.",
+   "involves": [
+    "Sketch and prototype ideas",
+    "Design screens and flows",
+    "Test designs with users"
+   ],
+   "education": "A design degree helps, but a strong portfolio matters most.",
+   "opportunities": "Startups to large tech. Leads to senior/lead designer.",
+   "projects": [
+    "Redesign one screen of an app you use daily and explain each change"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.7,
+    "A": 1.0,
+    "S": 0.0,
+    "E": 0.4,
+    "C": 0.0
+   },
+   "riasec_code": "AIE",
+   "skills": [
+    {
+     "skill": "figma",
+     "weight": 1.0
+    },
+    {
+     "skill": "prototyping",
+     "weight": 1.0
+    },
+    {
+     "skill": "wireframing",
+     "weight": 0.667
+    },
+    {
+     "skill": "user research",
+     "weight": 0.667
+    },
+    {
+     "skill": "design systems",
+     "weight": 0.667
+    },
+    {
+     "skill": "visual design",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 0.333
+    },
+    {
+     "skill": "html",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "motion-graphics-designer",
+   "source": "curated",
+   "title": "Motion Graphics Designer",
+   "category": "Creative & Design",
+   "work_with": [
+    "creative",
+    "technology"
+   ],
+   "environments": [
+    "studio",
+    "remote"
+   ],
+   "structure": 0.8,
+   "description": "Creates animated graphics for videos, ads, apps and social media.",
+   "involves": [
+    "Storyboard ideas",
+    "Animate graphics and text",
+    "Edit and deliver final videos"
+   ],
+   "education": "Diploma or degree in animation or design; portfolio is essential.",
+   "opportunities": "Agencies, media, gaming and ed-tech.",
+   "projects": [
+    "Make a 20-second animated explainer about a topic you know"
+   ],
+   "riasec": {
+    "R": 0.7,
+    "I": 0.0,
+    "A": 1.0,
+    "S": 0.0,
+    "E": 0.4,
+    "C": 0.0
+   },
+   "riasec_code": "ARE",
+   "skills": [
+    {
+     "skill": "after effects",
+     "weight": 1.0
+    },
+    {
+     "skill": "animation",
+     "weight": 1.0
+    },
+    {
+     "skill": "illustrator",
+     "weight": 0.667
+    },
+    {
+     "skill": "premiere pro",
+     "weight": 0.667
+    },
+    {
+     "skill": "storytelling",
+     "weight": 0.667
+    },
+    {
+     "skill": "blender",
+     "weight": 0.333
+    },
+    {
+     "skill": "visual design",
+     "weight": 0.667
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "accessibility-designer",
+   "source": "curated",
+   "title": "Accessibility Designer",
+   "category": "Creative & Design",
+   "work_with": [
+    "people",
+    "creative",
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.55,
+   "description": "Makes sure websites and apps can be used by everyone, including people with disabilities.",
+   "involves": [
+    "Audit designs against accessibility standards",
+    "Design accessible components",
+    "Test with assistive technology"
+   ],
+   "education": "Background in design or front-end development; accessibility certifications (CPACC) help.",
+   "opportunities": "Growing because of accessibility laws; product companies and government.",
+   "projects": [
+    "Audit a public website for accessibility and fix five issues in a copy of it"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.4,
+    "A": 1.0,
+    "S": 0.7,
+    "E": 0.0,
+    "C": 0.0
+   },
+   "riasec_code": "ASI",
+   "skills": [
+    {
+     "skill": "accessibility",
+     "weight": 1.0
+    },
+    {
+     "skill": "wcag",
+     "weight": 1.0
+    },
+    {
+     "skill": "figma",
+     "weight": 0.667
+    },
+    {
+     "skill": "html",
+     "weight": 0.667
+    },
+    {
+     "skill": "usability testing",
+     "weight": 0.667
+    },
+    {
+     "skill": "empathy",
+     "weight": 0.667
+    },
+    {
+     "skill": "design systems",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "cybersecurity-analyst",
+   "source": "curated",
+   "title": "Cybersecurity Analyst",
+   "category": "Emerging Technology",
+   "work_with": [
+    "technology",
+    "data"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.3,
+   "description": "Watches for attacks on an organisation's systems and responds when something goes wrong.",
+   "involves": [
+    "Monitor alerts and logs",
+    "Investigate suspicious activity",
+    "Help fix weaknesses"
+   ],
+   "education": "Bachelor's in IT or computer science; certifications like Security+ or CEH help.",
+   "opportunities": "Strong demand in every sector.",
+   "projects": [
+    "Set up a home lab, generate test attacks and detect them in the logs"
+   ],
+   "riasec": {
+    "R": 0.4,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.7
+   },
+   "riasec_code": "ICR",
+   "skills": [
+    {
+     "skill": "networking",
+     "weight": 1.0
+    },
+    {
+     "skill": "security monitoring",
+     "weight": 1.0
+    },
+    {
+     "skill": "linux",
+     "weight": 0.667
+    },
+    {
+     "skill": "incident response",
+     "weight": 0.667
+    },
+    {
+     "skill": "splunk",
+     "weight": 0.667
+    },
+    {
+     "skill": "python",
+     "weight": 0.333
+    },
+    {
+     "skill": "firewalls",
+     "weight": 0.333
+    },
+    {
+     "skill": "attention to detail",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": true
+  },
+  {
+   "id": "ai-product-specialist",
+   "source": "curated",
+   "title": "AI Product Specialist",
+   "category": "Emerging Technology",
+   "work_with": [
+    "people",
+    "technology",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.55,
+   "description": "Helps teams and customers use AI products well: explains, configures and improves them.",
+   "involves": [
+    "Understand customer needs",
+    "Configure and test AI features",
+    "Turn feedback into product improvements"
+   ],
+   "education": "Any bachelor's degree with technical understanding of AI.",
+   "opportunities": "New role at AI companies and teams adopting AI.",
+   "projects": [
+    "Build and test a prompt-based helper for a real task, and document its limits"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.7,
+    "A": 0.0,
+    "S": 0.4,
+    "E": 1.0,
+    "C": 0.0
+   },
+   "riasec_code": "EIS",
+   "skills": [
+    {
+     "skill": "ai literacy",
+     "weight": 1.0
+    },
+    {
+     "skill": "prompt engineering",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 1.0
+    },
+    {
+     "skill": "product management",
+     "weight": 0.667
+    },
+    {
+     "skill": "problem solving",
+     "weight": 0.667
+    },
+    {
+     "skill": "python",
+     "weight": 0.333
+    },
+    {
+     "skill": "presentation",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": true
+  },
+  {
+   "id": "robotics-engineer",
+   "source": "curated",
+   "title": "Robotics Engineer",
+   "category": "Emerging Technology",
+   "work_with": [
+    "technology"
+   ],
+   "environments": [
+    "lab",
+    "field"
+   ],
+   "structure": 0.5,
+   "description": "Designs, builds and programs robots and automated machines.",
+   "involves": [
+    "Design mechanical and electronic systems",
+    "Program robot control and sensing",
+    "Test robots in real conditions"
+   ],
+   "education": "Bachelor's in mechanical, electrical, electronics or mechatronics engineering.",
+   "opportunities": "Manufacturing, logistics, healthcare and research.",
+   "projects": [
+    "Build a line-following robot with a microcontroller",
+    "Simulate a robot arm in ROS"
+   ],
+   "riasec": {
+    "R": 1.0,
+    "I": 0.7,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "RIC",
+   "skills": [
+    {
+     "skill": "c++",
+     "weight": 1.0
+    },
+    {
+     "skill": "python",
+     "weight": 0.667
+    },
+    {
+     "skill": "ros",
+     "weight": 1.0
+    },
+    {
+     "skill": "control systems",
+     "weight": 0.667
+    },
+    {
+     "skill": "cad",
+     "weight": 0.667
+    },
+    {
+     "skill": "electronics",
+     "weight": 0.667
+    },
+    {
+     "skill": "matlab",
+     "weight": 0.333
+    },
+    {
+     "skill": "embedded systems",
+     "weight": 0.667
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": true
+  },
+  {
+   "id": "cloud-security-engineer",
+   "source": "curated",
+   "title": "Cloud Security Engineer",
+   "category": "Emerging Technology",
+   "work_with": [
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.35,
+   "description": "Protects applications and data that run in the cloud.",
+   "involves": [
+    "Design secure cloud setups",
+    "Manage identities and access",
+    "Automate security checks"
+   ],
+   "education": "Bachelor's in IT or computer science; cloud and security certifications are valued.",
+   "opportunities": "High demand as companies move to the cloud.",
+   "projects": [
+    "Harden a small cloud setup: least-privilege access, logging and alerts"
+   ],
+   "riasec": {
+    "R": 1.0,
+    "I": 0.7,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "RIC",
+   "skills": [
+    {
+     "skill": "aws",
+     "weight": 1.0
+    },
+    {
+     "skill": "azure",
+     "weight": 0.667
+    },
+    {
+     "skill": "iam",
+     "weight": 1.0
+    },
+    {
+     "skill": "networking",
+     "weight": 0.667
+    },
+    {
+     "skill": "terraform",
+     "weight": 0.667
+    },
+    {
+     "skill": "linux",
+     "weight": 0.667
+    },
+    {
+     "skill": "python",
+     "weight": 0.333
+    },
+    {
+     "skill": "security monitoring",
+     "weight": 0.667
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": true
+  },
+  {
+   "id": "climate-data-analyst",
+   "source": "curated",
+   "title": "Climate Data Analyst",
+   "category": "Research & Environment",
+   "work_with": [
+    "data",
+    "ideas"
+   ],
+   "environments": [
+    "office",
+    "remote",
+    "lab"
+   ],
+   "structure": 0.45,
+   "description": "Analyses climate and environmental data to understand change and support decisions.",
+   "involves": [
+    "Process weather, emissions or satellite data",
+    "Build models and maps",
+    "Explain results to policy and business teams"
+   ],
+   "education": "Bachelor's in environmental science, geography, statistics or engineering; master's often preferred.",
+   "opportunities": "Research bodies, NGOs, consultancies and climate-tech startups.",
+   "projects": [
+    "Analyse 50 years of temperature data for your city and chart the trend"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.4,
+    "E": 0.0,
+    "C": 0.7
+   },
+   "riasec_code": "ICS",
+   "skills": [
+    {
+     "skill": "python",
+     "weight": 1.0
+    },
+    {
+     "skill": "statistics",
+     "weight": 0.667
+    },
+    {
+     "skill": "climate science",
+     "weight": 0.667
+    },
+    {
+     "skill": "gis",
+     "weight": 0.667
+    },
+    {
+     "skill": "sql",
+     "weight": 0.333
+    },
+    {
+     "skill": "data visualization",
+     "weight": 0.667
+    },
+    {
+     "skill": "r",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "gis-specialist",
+   "source": "curated",
+   "title": "GIS Specialist",
+   "category": "Research & Environment",
+   "work_with": [
+    "data",
+    "technology"
+   ],
+   "environments": [
+    "office",
+    "field"
+   ],
+   "structure": 0.35,
+   "description": "Builds and analyses maps and location data for planning, environment and logistics.",
+   "involves": [
+    "Collect and clean map data",
+    "Run spatial analysis",
+    "Make maps and map apps"
+   ],
+   "education": "Bachelor's in geography, geology, civil engineering or environmental science.",
+   "opportunities": "Government, urban planning, utilities, agriculture.",
+   "projects": [
+    "Map green spaces in your area with free satellite data in QGIS"
+   ],
+   "riasec": {
+    "R": 0.4,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.7
+   },
+   "riasec_code": "ICR",
+   "skills": [
+    {
+     "skill": "gis",
+     "weight": 1.0
+    },
+    {
+     "skill": "qgis",
+     "weight": 0.667
+    },
+    {
+     "skill": "arcgis",
+     "weight": 0.667
+    },
+    {
+     "skill": "remote sensing",
+     "weight": 0.667
+    },
+    {
+     "skill": "python",
+     "weight": 0.333
+    },
+    {
+     "skill": "sql",
+     "weight": 0.333
+    },
+    {
+     "skill": "data visualization",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "bioinformatics-analyst",
+   "source": "curated",
+   "title": "Bioinformatics Analyst",
+   "category": "Research & Environment",
+   "work_with": [
+    "data",
+    "technology",
+    "ideas"
+   ],
+   "environments": [
+    "lab",
+    "office"
+   ],
+   "structure": 0.45,
+   "description": "Analyses biological data such as DNA sequences to support medical and life-science research.",
+   "involves": [
+    "Run sequence analysis pipelines",
+    "Analyse results statistically",
+    "Work with biologists on experiments"
+   ],
+   "education": "Bachelor's or master's in biotechnology, bioinformatics or biology with programming.",
+   "opportunities": "Pharma, hospitals, research institutes.",
+   "projects": [
+    "Analyse a public gene-expression dataset and find differences between two groups"
+   ],
+   "riasec": {
+    "R": 0.7,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.0,
+    "C": 0.4
+   },
+   "riasec_code": "IRC",
+   "skills": [
+    {
+     "skill": "bioinformatics",
+     "weight": 1.0
+    },
+    {
+     "skill": "python",
+     "weight": 0.667
+    },
+    {
+     "skill": "r",
+     "weight": 0.667
+    },
+    {
+     "skill": "genomics",
+     "weight": 0.667
+    },
+    {
+     "skill": "linux",
+     "weight": 0.667
+    },
+    {
+     "skill": "statistics",
+     "weight": 0.667
+    },
+    {
+     "skill": "biology",
+     "weight": 0.667
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "sustainability-consultant",
+   "source": "curated",
+   "title": "Sustainability Consultant",
+   "category": "Research & Environment",
+   "work_with": [
+    "people",
+    "ideas",
+    "data"
+   ],
+   "environments": [
+    "office",
+    "field"
+   ],
+   "structure": 0.5,
+   "description": "Helps organisations measure and reduce their environmental impact.",
+   "involves": [
+    "Measure carbon and resource use",
+    "Recommend practical changes",
+    "Prepare sustainability reports"
+   ],
+   "education": "Bachelor's in environmental science, engineering or business; sustainability certifications help.",
+   "opportunities": "Consultancies and large companies with ESG goals.",
+   "projects": [
+    "Estimate your college's yearly carbon footprint and suggest three reductions"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.4,
+    "A": 0.0,
+    "S": 0.7,
+    "E": 1.0,
+    "C": 0.0
+   },
+   "riasec_code": "ESI",
+   "skills": [
+    {
+     "skill": "sustainability reporting",
+     "weight": 1.0
+    },
+    {
+     "skill": "carbon accounting",
+     "weight": 0.667
+    },
+    {
+     "skill": "esg",
+     "weight": 0.667
+    },
+    {
+     "skill": "excel",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 0.667
+    },
+    {
+     "skill": "project management",
+     "weight": 0.333
+    },
+    {
+     "skill": "presentation",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "supply-chain-analyst",
+   "source": "curated",
+   "title": "Supply Chain Analyst",
+   "category": "Business & Operations",
+   "work_with": [
+    "data",
+    "people"
+   ],
+   "environments": [
+    "office"
+   ],
+   "structure": 0.3,
+   "description": "Keeps products flowing from suppliers to customers at the right cost and time.",
+   "involves": [
+    "Track inventory and deliveries",
+    "Forecast demand",
+    "Find ways to cut cost and delays"
+   ],
+   "education": "Bachelor's in engineering, commerce or supply chain management.",
+   "opportunities": "Manufacturing, retail, e-commerce, logistics.",
+   "projects": [
+    "Build a demand forecast and reorder plan for a small shop's products"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.4,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.7,
+    "C": 1.0
+   },
+   "riasec_code": "CEI",
+   "skills": [
+    {
+     "skill": "excel",
+     "weight": 1.0
+    },
+    {
+     "skill": "supply chain management",
+     "weight": 1.0
+    },
+    {
+     "skill": "forecasting",
+     "weight": 0.667
+    },
+    {
+     "skill": "sql",
+     "weight": 0.667
+    },
+    {
+     "skill": "sap",
+     "weight": 0.333
+    },
+    {
+     "skill": "power bi",
+     "weight": 0.333
+    },
+    {
+     "skill": "communication",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "operations-research-analyst",
+   "source": "curated",
+   "title": "Operations Research Analyst",
+   "category": "Business & Operations",
+   "work_with": [
+    "data",
+    "ideas"
+   ],
+   "environments": [
+    "office"
+   ],
+   "structure": 0.4,
+   "description": "Uses maths and optimisation to help organisations make better decisions.",
+   "involves": [
+    "Build optimisation and simulation models",
+    "Test what-if scenarios",
+    "Recommend the best plan"
+   ],
+   "education": "Bachelor's or master's in operations research, maths, statistics or engineering.",
+   "opportunities": "Airlines, logistics, manufacturing, consulting.",
+   "projects": [
+    "Optimise delivery routes for 10 addresses with a linear programming model"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 1.0,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 0.4,
+    "C": 0.7
+   },
+   "riasec_code": "ICE",
+   "skills": [
+    {
+     "skill": "optimization",
+     "weight": 1.0
+    },
+    {
+     "skill": "linear programming",
+     "weight": 0.667
+    },
+    {
+     "skill": "python",
+     "weight": 0.667
+    },
+    {
+     "skill": "statistics",
+     "weight": 0.667
+    },
+    {
+     "skill": "simulation",
+     "weight": 0.667
+    },
+    {
+     "skill": "excel",
+     "weight": 0.333
+    },
+    {
+     "skill": "sql",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "product-operations-specialist",
+   "source": "curated",
+   "title": "Product Operations Specialist",
+   "category": "Business & Operations",
+   "work_with": [
+    "people",
+    "data"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.35,
+   "description": "Keeps product teams running smoothly: tools, processes, data and launches.",
+   "involves": [
+    "Run product launch checklists",
+    "Maintain tools and dashboards",
+    "Collect and route customer feedback"
+   ],
+   "education": "Any bachelor's degree; experience in operations or support helps.",
+   "opportunities": "Tech companies; leads to product manager or operations lead.",
+   "projects": [
+    "Design a launch checklist and feedback tracker for a mock product"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.0,
+    "A": 0.0,
+    "S": 0.4,
+    "E": 1.0,
+    "C": 0.7
+   },
+   "riasec_code": "ECS",
+   "skills": [
+    {
+     "skill": "project management",
+     "weight": 1.0
+    },
+    {
+     "skill": "communication",
+     "weight": 0.667
+    },
+    {
+     "skill": "jira",
+     "weight": 0.667
+    },
+    {
+     "skill": "excel",
+     "weight": 0.667
+    },
+    {
+     "skill": "process improvement",
+     "weight": 0.667
+    },
+    {
+     "skill": "sql",
+     "weight": 0.333
+    },
+    {
+     "skill": "organisation",
+     "weight": 0.667
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  },
+  {
+   "id": "business-intelligence-consultant",
+   "source": "curated",
+   "title": "Business Intelligence Consultant",
+   "category": "Business & Operations",
+   "work_with": [
+    "data",
+    "people"
+   ],
+   "environments": [
+    "office",
+    "remote"
+   ],
+   "structure": 0.4,
+   "description": "Helps client companies set up reporting and dashboards so they can run on data.",
+   "involves": [
+    "Understand clients' questions",
+    "Design data models and dashboards",
+    "Train client teams"
+   ],
+   "education": "Bachelor's in commerce, IT or engineering; BI tool certifications help.",
+   "opportunities": "Consultancies and IT services firms.",
+   "projects": [
+    "Build a dashboard for a mock client from raw CSV files and present it in five minutes"
+   ],
+   "riasec": {
+    "R": 0.0,
+    "I": 0.4,
+    "A": 0.0,
+    "S": 0.0,
+    "E": 1.0,
+    "C": 0.7
+   },
+   "riasec_code": "ECI",
+   "skills": [
+    {
+     "skill": "power bi",
+     "weight": 1.0
+    },
+    {
+     "skill": "sql",
+     "weight": 1.0
+    },
+    {
+     "skill": "tableau",
+     "weight": 0.667
+    },
+    {
+     "skill": "excel",
+     "weight": 0.667
+    },
+    {
+     "skill": "communication",
+     "weight": 0.667
+    },
+    {
+     "skill": "data visualization",
+     "weight": 0.667
+    },
+    {
+     "skill": "presentation",
+     "weight": 0.333
+    }
+   ],
+   "postings": null,
+   "median_salary_usd": null,
+   "demand": null,
+   "rising_skills": [],
+   "emerging_field": false
+  }
+ ]
+}

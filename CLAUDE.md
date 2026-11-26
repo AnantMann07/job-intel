@@ -17,7 +17,9 @@ The build order and the "done when" checks are in ROADMAP.md. Work on one step a
 - `backend/`: FastAPI. Reads only small precomputed files from `backend/artifacts/`; never reads `data/` and never trains models. It must run in 512 MB RAM (Render free tier), so do not add PyTorch or sentence-transformers to `backend/requirements.txt`. For runtime embeddings use Model2Vec (`minishlab/potion-base-8M`), and precompute skill embeddings with the same model.
 - `frontend/`: Next.js 16 (App Router) + TypeScript + Tailwind 4. Read `frontend/AGENTS.md` before writing Next.js code. The API URL comes from `NEXT_PUBLIC_API_URL`. Types in `frontend/src/lib/api.ts` mirror `backend/app/schemas.py`: change both together.
 - All scoring goes through ONE module, `backend/app/services/scoring.py` (`suggest`, `gap`, `roadmap`), so every page shows the same numbers. Resume parsing is in `backend/app/services/resume.py`.
-- Website routes: `/` Home, `/suggestions`, `/resume`, `/roadmap`, `/insights`, `/trends` (future: `/career`, `/simulator`). The user's skills live in `localStorage` via `frontend/src/lib/profile.ts` so all pages share them.
+- Website routes: `/` Home, `/suggestions`, `/resume`, `/roadmap`, `/applications`, `/insights`, `/trends`, `/login`, `/account`. The profile (skills, learned skills, applications) lives in `localStorage` via `frontend/src/lib/profile.ts`; when logged in, `components/CloudSync.tsx` saves it to Supabase (`supabase/schema.sql`). Accounts are optional and switched off when the `NEXT_PUBLIC_SUPABASE_*` variables are missing.
+- The chat assistant: `backend/app/services/assistant.py` (finds facts with the scoring code, then Gemini phrases them if `GEMINI_API_KEY` is set, else templates) and `frontend/src/components/Assistant.tsx`.
+- Look: follow DESIGN.md (one font, teal + mint/rose highlighter, no icon tiles, no mono labels).
 
 ## Commands (Windows PowerShell; activate first with `.venv\Scripts\activate`)
 

@@ -11,12 +11,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from . import data
 from .config import cors_origin_regex, cors_origins
-from .routers import market, profile
+from .routers import assistant, careers, market, profile
 from .schemas import Health
 
 app = FastAPI(
     title="AI Job Market Intelligence API",
-    version="0.2.0",
+    version="0.3.0",
     description="Job-market analytics, skill gaps and career paths from job-posting data.",
 )
 
@@ -43,3 +43,5 @@ def health() -> dict:
 
 app.include_router(market.router, prefix="/api/market", tags=["market"])
 app.include_router(profile.router, prefix="/api")
+app.include_router(careers.router, prefix="/api", tags=["careers"])
+app.include_router(assistant.router, prefix="/api/assistant", tags=["assistant"])

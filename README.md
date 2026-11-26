@@ -4,12 +4,18 @@ A job suggestion website built on about 775k real job postings. Upload a resume 
 
 | Page | What it does | API |
 | --- | --- | --- |
-| Home `/` | Upload a resume or type skills; or pick a dream job | `/api/resume/parse`, `/api/roles` |
-| Job Suggestions `/suggestions` | Jobs you are ready for (match ≥ 70%) and jobs within reach, with example openings | `/api/suggest` |
-| Resume Analysis `/resume` | Your skills compared one by one with a target job; what to learn first | `/api/resume/parse`, `/api/gap` |
-| My Roadmap `/roadmap` | Readiness score and a staged plan of skills to learn, with a practice project per stage | `/api/roadmap` |
-| Market Dashboard `/insights` | Postings per month, most requested skills, fastest-rising skills, jobs table | `/api/market/overview`, `/api/skills/trending` |
-| Skill Trends `/trends` | Emerging / stable / declining skills with a forecast chart for each | `/api/skills/trending`, `/api/skills/{skill}/trend` |
+| Home `/` | Type skills or upload a resume; an example ad highlights your skills live; or pick the job you want | `/api/resume/parse`, `/api/roles` |
+| Jobs for you `/suggestions` | Jobs you can apply for now (match ≥ 50%) and jobs a few skills away, with real example postings | `/api/suggest` |
+| Resume check `/resume` | Your skills compared one by one with a job; what to learn first | `/api/resume/parse`, `/api/gap` |
+| Roadmap `/roadmap` | Steps of skills to learn with a practice project each; tick skills off and the match % updates; download as PDF | `/api/roadmap` |
+| Applications `/applications` | Jobs and internships you opened from Apply, with status and notes | (saved in the browser / account) |
+| Market `/insights` | Postings per month, most asked-for skills, fastest-rising skills, jobs table | `/api/market/overview`, `/api/skills/trending` |
+| Skill trends `/trends` | Rising / steady / falling skills with a forecast chart for each | `/api/skills/trending`, `/api/skills/{skill}/trend` |
+| Discover `/discover` | Interest questions + skills/strengths → careers in 4 groups with reasons, transferable skills and gaps; Surprise me | `/api/discover/questions`, `/api/discover` |
+| Career profile `/careers/[id]` | One career in detail, compared with your skills; add it to your roadmap | `/api/careers/{id}` |
+| Settings `/settings` | Light / dark / system theme, account, clear data | (browser / account) |
+| Log in / Account | Optional accounts (Supabase) so the profile follows you to any device | Supabase |
+| Ask JobIntel (every page) | Chat assistant that answers from JobIntel's data; Gemini writes the sentences if a key is set | `/api/assistant/chat` |
 
 ```
 job-intel/
@@ -193,8 +199,9 @@ From now on every `git push` to `main` redeploys both automatically. The API alr
 2. **Normalize titles** (`titles.py`): extracts the seniority level (Intern / Entry / Mid / Senior / Lead) and maps messy titles to about 17 canonical roles with ordered regex rules. The data report shows how often these rules agree with the dataset's own role labels.
 3. **Market statistics** (`market.py`): skill demand is measured as a **share** of postings, never as raw counts, because the number of postings changes from month to month.
 4. **Job profiles** (`profiles.py`): for every job role, the share of its postings that ask for each skill (top 40 kept), median salary, and a demand trend (share of postings in the last 3 months ÷ first 3 months).
-5. **Job suggestions** (`backend/app/services/scoring.py`): each role gets a score = 0.5 × cosine similarity (your skills vs the role's skill profile) + 0.3 × coverage (share-weighted part of the role's top 20 skills you have) + 0.2 × demand (log of postings). Coverage ≥ 70% = "Ready to apply". The roadmap orders missing skills by how often employers ask for them (rising skills get a small boost) and groups them into stages of two.
+5. **Job suggestions** (`backend/app/services/scoring.py`): each role gets a score = 0.5 × cosine similarity (your skills vs the role's skill profile) + 0.3 × coverage (share-weighted part of the role's top 20 skills you have) + 0.2 × demand (log of postings). Coverage ≥ 50% = "Ready to apply". The roadmap orders missing skills by how often employers ask for them (rising skills get a small boost) and groups them into stages of two.
 6. **Skill trends** (`trends.py`): monthly share per skill; Theil-Sen slope and Mann-Kendall test decide emerging / stable / declining; Holt's linear smoothing forecasts 3 months ahead with an 80% band. Backtested on the last 3 months against naive and moving-average forecasts.
+8. **Career Discovery** (`pipeline/careers.py`, `backend/app/services/discovery.py`): careers.json joins the job profiles from postings with 24 curated careers (`pipeline/careers_catalog.py`, labelled "curated" because the 2023 data has no postings for them); each career has a RIASEC interest profile. skill_graph.json holds cosine similarity of skills from how often they appear in the same postings. Score = 0.45 × interest cosine (answers → RIASEC vector) + 0.35 × skill coverage, where missing skills get partial credit through similar skills you have (transferable skills) + 0.10 × work style overlap + 0.10 × structure preference. Groups: strong (top scores), hidden (good interest fit in a different field), emerging (emerging-technology field or skills rising in the trends model), alternative (reachable mostly through transferable skills). Tested with personas (`tests/test_discovery.py`).
 7. **Evaluation** (`evaluate.py`): 10% of postings are held out and used as pretend candidates (their skills in, their real role as the answer). Hit@1, Hit@3 and MRR are compared with cosine-only, coverage-only and "most popular role" baselines. Results in `reports/suggestions_eval.md`.
 
 ## API endpoints
@@ -211,5 +218,20 @@ All under `/api`; try them at `/docs` on the running API.
 | `POST /roadmap` | Skills + target job in, staged learning plan out |
 | `GET /skills/trending?label=emerging` | Skills by trend label |
 | `GET /skills/{skill}/trend` | History, forecast and test results for one skill |
+| `POST /assistant/chat` | One chat message (+ skills, recent turns) in, answer + links out |
+| `GET /assistant/status` | Whether AI answers are on |
+
+## Part H: Optional extras
+
+**AI answers in the assistant (free).** Get a key at https://aistudio.google.com → Get API key. On Render → your service → Environment, add `GEMINI_API_KEY` = the key, then save (it redeploys). Without a key the assistant still works, answering from templates. Never put the key in the code or on Vercel.
+
+**Accounts (log in / sign up, free).**
+1. https://supabase.com → sign in with GitHub → New project (any name, a strong database password, region Mumbai). Wait until it is ready.
+2. SQL Editor → New query → paste all of `supabase/schema.sql` → Run.
+3. Authentication → Sign In / Providers → Email → turn **off** "Confirm email" → Save (the free email sender only reaches a few addresses).
+4. Project Settings → API (or the Connect button): copy the **Project URL** and the **Publishable key** (`sb_publishable_...`).
+5. On Vercel → Settings → Environment Variables add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, then Deployments → Redeploy. For local testing put the same two lines in `frontend/.env.local`.
+
+The publishable key is designed to be public; Row Level Security in `schema.sql` keeps each person's data private.
 
 Data: [data_jobs](https://huggingface.co/datasets/lukebarousse/data_jobs) by Luke Barousse, Apache-2.0 license, 2023 job postings for data roles.

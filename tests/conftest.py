@@ -37,6 +37,28 @@ def trends(postings) -> dict:
     return build_trends(skills_monthly(postings), SKILL_CATEGORY)[0]
 
 
+def careers_artifact(roles, trends) -> dict:
+    from pipeline.careers import build_careers
+    from pipeline.careers_catalog import CATEGORIES, STRENGTHS
+    labels = {s["skill"]: s["label"] for s in trends["skills"]}
+    return {"categories": CATEGORIES, "strengths": STRENGTHS, "careers": build_careers(roles, labels)}
+
+
+def skill_graph(postings) -> dict:
+    from pipeline.careers import build_skill_graph
+    return build_skill_graph(postings["skills"].map(list))
+
+
+@pytest.fixture(scope="session")
+def careers(roles, trends) -> list:
+    return careers_artifact(roles, trends)["careers"]
+
+
+@pytest.fixture(scope="session")
+def graph(postings) -> dict:
+    return skill_graph(postings)
+
+
 @pytest.fixture()
 def artifacts_dir(tmp_path, overview, roles, trends, postings, monkeypatch):
     """A temporary artifacts folder the API reads from during a test."""
@@ -44,5 +66,7 @@ def artifacts_dir(tmp_path, overview, roles, trends, postings, monkeypatch):
     (tmp_path / "roles.json").write_text(json.dumps(roles))
     (tmp_path / "skills.json").write_text(json.dumps(build_skill_dictionary(postings, SKILL_CATEGORY)))
     (tmp_path / "trends.json").write_text(json.dumps(trends))
+    (tmp_path / "careers.json").write_text(json.dumps(careers_artifact(roles, trends)))
+    (tmp_path / "skill_graph.json").write_text(json.dumps(skill_graph(postings)))
     monkeypatch.setenv("ARTIFACTS_DIR", str(tmp_path))
     return tmp_path

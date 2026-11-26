@@ -12,10 +12,20 @@ router = APIRouter()
 
 
 def _role(name: str) -> dict:
-    role = scoring.find_role(data.roles(), name)
+    role = scoring.find_role(data.all_roles(), name)
     if role is None:
         raise HTTPException(status_code=404, detail=f"Unknown job '{name}'. See /api/roles for the list.")
     return role
+
+
+def _dictionary() -> list[str]:
+    """Skills the resume reader looks for: posting skills plus skills of the curated careers."""
+    words = {s["skill"] for s in data.skills()}
+    try:
+        words |= {k["skill"] for c in data.careers()["careers"] for k in c["skills"]}
+    except HTTPException:
+        pass
+    return sorted(words)
 
 
 @router.get("/roles", response_model=list[RoleSummary], tags=["jobs"])
@@ -37,7 +47,7 @@ async def parse_resume(file: UploadFile = File(...)):
     """Upload a PDF, DOCX or TXT resume (max 5 MB). Returns the skills found. Nothing is stored."""
     raw = await file.read(resume.MAX_BYTES + 1)
     try:
-        return resume.parse_resume(file.filename or "", raw, [s["skill"] for s in data.skills()])
+        return resume.parse_resume(file.filename or "", raw, _dictionary())
     except resume.ResumeError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 

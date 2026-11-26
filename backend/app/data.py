@@ -66,3 +66,26 @@ def artifacts_status() -> dict:
         info["data_generated_at"] = ov.get("generated_at")
         info["is_sample"] = ov.get("is_sample")
     return info
+
+
+def careers() -> dict:
+    return load_json("careers.json")
+
+
+def skill_graph() -> dict:
+    try:
+        return load_json("skill_graph.json")
+    except HTTPException:
+        return {}
+
+
+def all_roles() -> list[dict]:
+    """Job profiles from postings plus curated careers (for roadmap and gap)."""
+    from .services.discovery import career_as_role
+    roles = list(load_json("roles.json"))
+    names = {r["role"].lower() for r in roles}
+    try:
+        roles += [career_as_role(c) for c in careers()["careers"] if c["source"] == "curated" and c["title"].lower() not in names]
+    except HTTPException:
+        pass
+    return roles

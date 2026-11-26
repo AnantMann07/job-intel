@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { Briefcase, Check, Code2, Map as MapIcon, Route, Sparkles } from "lucide-react";
-import { getRoadmap, getRoles } from "@/lib/api";
+import { getCareers, getRoadmap, getRoles, type RoadmapOut } from "@/lib/api";
 import { fmtPct } from "@/lib/format";
-import { useProfile } from "@/lib/profile";
+import { updateProfile, useProfile } from "@/lib/profile";
 import { useAsync } from "@/lib/useAsync";
 import { useDataInfo } from "@/components/AppShell";
-import { Card, CardTitle, ErrorBox, Loading, PageHeader, Ring, SkillPill, buttonPrimary, inputClass } from "@/components/ui";
+import { ApplyButton } from "@/components/Apply";
+import { Card, ErrorBox, Loading, MatchMeter, PageHeader, Skill, SkillList, buttonSecondary, inputClass, linkClass, toneInk } from "@/components/ui";
 
 export default function RoadmapPage() {
   return (
@@ -19,111 +19,129 @@ export default function RoadmapPage() {
   );
 }
 
+/** Match % for a set of skills, using the job's top skills that came with the roadmap. */
+function matchFor(d: RoadmapOut, skills: Set<string>) {
+  const total = d.top.reduce((a, s) => a + s.share, 0);
+  const have = d.top.reduce((a, s) => a + (skills.has(s.skill) ? s.share : 0), 0);
+  return total ? Math.round((100 * have) / total) : d.ready;
+}
+
+function toggleLearned(skill: string, on: boolean) {
+  updateProfile((p) => ({
+    ...p,
+    skills: on ? [...p.skills, skill] : p.skills.filter((s) => s !== skill),
+    learned: on ? [...(p.learned ?? []), skill] : (p.learned ?? []).filter((s) => s !== skill),
+  }));
+}
+
 function Roadmap() {
   const router = useRouter();
   const params = useSearchParams();
   const profile = useProfile();
   const { isSample } = useDataInfo();
   const roles = useAsync("roles", getRoles);
-  const roleNames = roles.data?.map((r) => r.role) ?? [];
+  const careers = useAsync("careers", getCareers);
+  const roleNames = [...new Set([...(roles.data?.map((r) => r.role) ?? []), ...(careers.data?.map((c) => c.title) ?? [])])];
   const wanted = params.get("role") ?? "";
   const role = roleNames.find((r) => r.toLowerCase() === wanted.toLowerCase()) ?? roleNames[0] ?? "";
-  const plan = useAsync(role ? `roadmap:${role}:${profile.skills.join(",")}` : null, () => getRoadmap(profile.skills, role));
+
+  // The plan is built from the skills you had before ticking anything, so the stages stay put while you tick.
+  const learned = new Set(profile.learned ?? []);
+  const base = profile.skills.filter((s) => !learned.has(s));
+  const plan = useAsync(role ? `roadmap:${role}:${base.join(",")}` : null, () => getRoadmap(base, role));
   const d = plan.data;
+  const mine = new Set(profile.skills);
+  const now = d ? matchFor(d, mine) : 0;
+  const planned = d ? d.stages.flatMap((s) => s.skills.map((k) => k.skill)) : [];
+  const done = planned.filter((s) => mine.has(s)).length;
 
   return (
     <>
       <PageHeader
-        icon={MapIcon}
-        title={role ? `Your roadmap to ${role}` : "Your roadmap"}
-        subtitle={profile.skills.length ? `Starting from ${profile.currentRole ? `${profile.currentRole}, ` : ""}${profile.skills.length} skills` : "Starting from scratch. Add your skills on Home to personalise this."}
+        tone="mint"
+        title={role ? `Your route to ${role}` : "Your route"}
+        subtitle={base.length ? `Starting from your ${base.length} skills. Tick skills off as you learn them.` : "Starting from scratch. Add your skills on the home page to make this yours."}
         sample={isSample}
-      />
-      <Card className="flex flex-wrap items-center gap-x-8 gap-y-5">
-        {d ? <Ring value={d.ready} label="ready" size={104} /> : <div className="size-[104px] rounded-full bg-tint" />}
-        <div className="flex-[1_1_300px]">
-          {d && (
-            <>
-              <div className="text-lg font-semibold">You have {d.have.length} of the {d.top_count} skills {d.role} postings ask for most</div>
-              <div className="mt-1.5 text-sm leading-relaxed text-ink-2">
-                {d.stages.length ? `Follow the ${d.stages.length === 1 ? "stage" : `${d.stages.length} stages`} below to reach about ${d.final_match}%.` : "You already have every top skill for this job."} Each stage adds the skills that raise your match the most.
-              </div>
-            </>
-          )}
-        </div>
-        <label className="flex flex-col gap-1.5 text-xs font-medium text-ink-2">
-          Target job
-          <select className={`${inputClass} min-w-52`} value={role} disabled={!roles.data} onChange={(e) => router.replace(`/roadmap?role=${encodeURIComponent(e.target.value)}`)}>
+      >
+        <div className="no-print flex flex-wrap items-center gap-2">
+          <label htmlFor="route-job" className="sr-only">Job</label>
+          <select id="route-job" className={`${inputClass} min-w-56`} value={role} disabled={!roles.data} onChange={(e) => router.replace(`/roadmap?role=${encodeURIComponent(e.target.value)}`)}>
             {roleNames.map((r) => <option key={r}>{r}</option>)}
           </select>
-        </label>
-      </Card>
+          <button type="button" className={buttonSecondary} onClick={() => window.print()} disabled={!d}>Download PDF</button>
+        </div>
+      </PageHeader>
       {plan.error && <ErrorBox message={plan.error} />}
-      {plan.loading && <Loading text="Building your roadmap…" />}
+      {plan.loading && <Loading text="Planning your route…" />}
       {d && (
-        <div className="flex flex-wrap items-start gap-6">
-          <Card className="min-w-0 flex-[2_1_560px]">
-            <CardTitle icon={MapIcon}>Your plan</CardTitle>
-            <p className="mb-6 mt-1.5 text-[13px] text-ink-2">Ordered by how often employers ask for each skill. % = share of {d.role} postings that ask for it.</p>
-            <ol>
-              <Step marker={<Check size={18} aria-hidden="true" />} filled title="What you already have" right={`Match today: ${d.ready}%`}>
-                <div className="flex flex-wrap gap-2">
-                  {d.have.length ? d.have.map((h) => <SkillPill key={h.skill}>{h.skill} · {fmtPct(h.share)}</SkillPill>) : <span className="text-sm text-ink-2">None of the top skills yet. That&apos;s fine, start with stage 1.</span>}
-                </div>
-              </Step>
-              {d.stages.map((s) => (
-                <Step key={s.number} marker={s.number} title={`Stage ${s.number}: ${s.title}`} right={`Match after: ${s.match_after}%`}>
-                  <div className="flex flex-wrap gap-2">
-                    {s.skills.map((k) => <SkillPill key={k.skill} tone={k.rising ? "amber" : "grey"}>{k.skill} · {fmtPct(k.share)}{k.rising ? " · rising" : ""}</SkillPill>)}
-                  </div>
-                  <p className="mt-2.5 flex gap-2 text-sm leading-relaxed text-ink-2"><Code2 size={16} className="mt-1 flex-none text-brand" aria-hidden="true" /><span>Practice project: {s.project}</span></p>
-                </Step>
-              ))}
-              <Step marker="→" filled last title="Apply" right={`${d.role} jobs open up`}>
-                <p className="text-sm leading-relaxed text-ink-2">Add the projects above to your resume, then check <Link href="/suggestions" className="font-medium text-brand">your job suggestions</Link> again.</p>
-              </Step>
-            </ol>
+        <>
+          <Card tone="lavender" className="print-plain">
+            <div className="flex flex-wrap items-center justify-between gap-x-10 gap-y-4">
+              <div>
+                <p className="font-medium text-lavender-ink">{done > 0 ? `Started at ${d.ready}%, now` : "Where you are"}</p>
+                <p className="text-[40px] font-semibold leading-none">{now}%</p>
+              </div>
+              <p className="max-w-md text-[16px] text-ink-2">
+                {d.stages.length === 0
+                  ? "You already have every skill this job asks for most. Time to apply!"
+                  : done === planned.length
+                    ? "Every skill on the route is ticked. Put the projects on your resume and apply."
+                    : `${done} of ${planned.length} skills ticked. Finish the route to reach about ${d.final_match}%.`}
+              </p>
+            </div>
+            <div className="mt-5"><MatchMeter value={now} /></div>
           </Card>
-          <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-4">
-            <Card>
-              <CardTitle icon={Route}>{d.have.length ? "Your skills also fit" : "Other jobs to explore"}</CardTitle>
-              <ul className="mt-3 flex flex-col gap-2">
-                {d.also_consider.map((r) => (
-                  <li key={r.role}>
-                    <Link href={`/roadmap?role=${encodeURIComponent(r.role)}`} className="flex items-center justify-between gap-3 rounded-xl bg-ground px-3 py-2.5 text-sm hover:bg-tint">
-                      <span className="flex items-center gap-2"><Briefcase size={16} className="text-brand" aria-hidden="true" />{r.role}</span>
-                      {d.have.length > 0 && <span className="font-mono text-xs text-brand-dark">{r.match}%</span>}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+
+          <div className="grid items-start gap-5 md:grid-cols-2">
+            <Card tone="white">
+              <h2 className="text-[20px] font-semibold">Already have</h2>
+              <div className="mt-3">
+                <SkillList>{d.have.length ? d.have.map((h) => <Skill key={h.skill} name={h.skill} />) : <span className="text-ink-2">Nothing yet, and that&apos;s fine. Start with step 1.</span>}</SkillList>
+              </div>
             </Card>
-            <Card>
-              <CardTitle icon={Sparkles}>Ready to look?</CardTitle>
-              <p className="mb-3 mt-1.5 text-[13px] leading-relaxed text-ink-2">See every job your current skills fit, with example openings.</p>
-              <Link href="/suggestions" className={buttonPrimary}>See job suggestions</Link>
+            {d.stages.map((s, i) => {
+              const tone = (["peach", "sky", "mint", "lavender"] as const)[i % 4];
+              const complete = s.skills.every((k) => mine.has(k.skill));
+              return (
+                <Card key={s.number} tone={tone} className="break-inside-avoid">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h2 className="text-[20px] font-semibold">Step {s.number}{complete ? " ✓" : ""}</h2>
+                    <span className={`text-sm font-medium ${toneInk[tone]}`}>takes you to {s.match_after}%</span>
+                  </div>
+                  <ul className="mt-3 flex flex-col gap-1">
+                    {s.skills.map((k) => (
+                      <li key={k.skill}>
+                        <label className="inline-flex min-h-10 cursor-pointer items-center gap-3">
+                          <input type="checkbox" className="size-5 accent-accent" checked={mine.has(k.skill)} onChange={(e) => toggleLearned(k.skill, e.target.checked)} />
+                          <span className={`text-[17px] font-medium ${mine.has(k.skill) ? "line-through decoration-2 opacity-60" : ""}`}>{k.skill}</span>
+                          <span className="text-sm text-ink-2">{fmtPct(k.share)} of postings{k.rising ? ", rising" : ""}</span>
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 text-[15px] leading-relaxed text-ink-2"><strong className="text-ink">Try this:</strong> {s.project}</p>
+                </Card>
+              );
+            })}
+            <Card tone="white">
+              <h2 className="text-[20px] font-semibold">Then apply</h2>
+              <p className="mt-2 text-ink-2">Put your projects on your resume and look at today&apos;s {d.role} openings.</p>
+              <div className="no-print mt-4"><ApplyButton role={d.role} /></div>
             </Card>
           </div>
-        </div>
+
+          {d.also_consider.length > 0 && (
+            <p className="no-print text-[16px] text-ink-2">
+              {d.have.length ? "Your skills also fit " : "Other jobs to look at: "}
+              {d.also_consider.map((r, i) => (
+                <span key={r.role}>{i > 0 && (i === d.also_consider.length - 1 ? " and " : ", ")}<Link href={`/roadmap?role=${encodeURIComponent(r.role)}`} className={linkClass}>{r.role}</Link>{d.have.length ? ` (${r.match}%)` : ""}</span>
+              ))}.
+            </p>
+          )}
+        </>
       )}
+      <p className="hidden text-sm text-muted print:block">From JobIntel, printed {new Date().toLocaleDateString("en-GB")}. Match % = share of what {role} postings usually ask for.</p>
     </>
   );
 }
 
-function Step({ marker, title, right, filled, last, children }: { marker: React.ReactNode; title: string; right: string; filled?: boolean; last?: boolean; children: React.ReactNode }) {
-  return (
-    <li className="flex gap-4">
-      <div className="flex w-9 flex-none flex-col items-center">
-        <span className={`flex size-9 items-center justify-center rounded-full text-sm font-semibold ${filled ? "bg-brand text-white" : "border-2 border-brand bg-white text-brand-dark"}`}>{marker}</span>
-        {!last && <span className="min-h-6 w-0.5 flex-auto bg-[#d0d5dd]" />}
-      </div>
-      <div className={`min-w-0 flex-auto ${last ? "" : "pb-7"}`}>
-        <div className="mb-2.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-          <h3 className="font-semibold">{title}</h3>
-          <span className="font-mono text-xs text-brand-dark">{right}</span>
-        </div>
-        {children}
-      </div>
-    </li>
-  );
-}

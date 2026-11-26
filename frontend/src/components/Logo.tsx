@@ -1,9 +1,12 @@
-export function Logo({ size = 30 }: { size?: number }) {
+// The JobIntel wordmark: a small violet mark and the name.
+export function Logo() {
   return (
-    <svg width={size} height={size} viewBox="0 0 30 30" aria-hidden="true">
-      <rect width="30" height="30" rx="9" fill="#4F46E5" />
-      <path d="M7.5 20l5-5.5 3.5 3 6-7" stroke="#FFFFFF" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M22.5 5.5l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z" fill="#FDE68A" />
-    </svg>
+    <span className="inline-flex items-center gap-2">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <rect width="22" height="22" rx="6" fill="var(--accent)" />
+        <path d="M6 14.5 9.5 11l2.5 2.5L16 8" stroke="var(--on-accent)" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <span className="text-[17px] font-semibold tracking-[-0.01em] text-ink">JobIntel</span>
+    </span>
   );
 }
