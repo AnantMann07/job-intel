@@ -6,6 +6,16 @@ JobIntel is a **job suggestion platform**. A person either
 
 Resume analysis, career paths, the what-if simulator and market insights support those two journeys. `DESIGN.md` describes every page.
 
+## Status (25 Nov): MVP built
+
+Done and tested (38 tests): data pipeline on the real data, job profiles, job suggestions, resume analysis, roadmap, skill trends with forecasts, market dashboard, offline evaluation against baselines (`reports/suggestions_eval.md`, `reports/forecast_eval.md`).
+
+Built differently from the plan below, on purpose, to meet the deadline:
+- Skills come from the dataset's own skill lists (no LinkedIn descriptions, no embeddings yet).
+- The roadmap is a staged skill plan; the NetworkX career graph is not built.
+
+Future work (not built yet): Career Paths page, What-If Simulator, LinkedIn job descriptions with skill extraction, Model2Vec skill similarity. The steps below stay as the full plan.
+
 Each step ends with something you can see on the website. Work through them in order. Start each step in a new Claude Code chat with:
 
 ```
@@ -42,7 +52,7 @@ Done when:
 - `POST /api/resume/parse`: PDF/DOCX upload (max 5 MB) → text (pdfplumber, python-docx) → skills with confidence, using the Step 2 extractor, plus the inferred current job. Nothing is stored.
 - `backend/app/services/scoring.py`:
   - `match(skills, role)`: weighted coverage, partial credit through embedding similarity (Model2Vec), missing skills ranked by weight.
-  - `suggest(skills, filters)`: score every job role (0.5 × skill similarity + 0.3 × match + 0.2 × demand) and split the results into "Ready to apply" (≥ 75%) and "Within reach".
+  - `suggest(skills, filters)`: score every job role (0.5 × skill similarity + 0.3 × match + 0.2 × demand) and split the results into "Ready to apply" (≥ 70%) and "Within reach".
 - Example openings: a small artifact of real postings per role, so each suggestion can list the postings whose skills best match the person's.
 - Endpoints: `/api/resume/parse`, `/api/suggest`, `/api/gap`.
 - Evaluate suggestions with held-out postings as pseudo-candidates: Hit@1, Hit@5 and MRR vs a cosine-only and a "most common job" baseline.

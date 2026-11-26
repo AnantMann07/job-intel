@@ -28,7 +28,13 @@ SKILL_CATEGORIES = PROCESSED / "skill_categories.csv"
 SKILLS_MONTHLY = PROCESSED / "skills_monthly.parquet"
 ROLE_SKILLS = PROCESSED / "role_skills.parquet"
 DATA_REPORT = REPORTS / "data_report.md"
+SUGGESTIONS_REPORT = REPORTS / "suggestions_eval.md"
+FORECAST_REPORT = REPORTS / "forecast_eval.md"
+EVAL_METRICS = PROCESSED / "eval_metrics.json"
 MARKET_OVERVIEW = BACKEND_ARTIFACTS / "market_overview.json"
+ROLES_ARTIFACT = BACKEND_ARTIFACTS / "roles.json"      # job profiles + example openings
+SKILLS_ARTIFACT = BACKEND_ARTIFACTS / "skills.json"    # skill dictionary for resume parsing
+TRENDS_ARTIFACT = BACKEND_ARTIFACTS / "trends.json"    # history, forecast and label per skill
 
 
 def ensure_dirs() -> None:

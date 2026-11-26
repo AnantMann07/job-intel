@@ -1,8 +1,15 @@
-# AI Job Market Intelligence Platform
+# JobIntel: AI Job Market Intelligence Platform
 
-A machine-learning website that analyses real job postings: which skills are in demand, which are emerging, how your resume compares to a target role, and which career moves are realistic.
+A job suggestion website built on about 775k real job postings. Upload a resume (or type your skills) and JobIntel suggests jobs you are ready for, shows which skills you are missing for a target job, and builds a step-by-step roadmap to the job you want. Market pages show the most requested skills and which skills are rising or falling, with forecasts.
 
-This repository contains **Step 0 (project setup) and Step 1 (data collection & cleaning)** of the build guide, plus a working API and website you can deploy today. Later steps (skill extraction, forecasting, resume analysis, career graph) are added on top of this.
+| Page | What it does | API |
+| --- | --- | --- |
+| Home `/` | Upload a resume or type skills; or pick a dream job | `/api/resume/parse`, `/api/roles` |
+| Job Suggestions `/suggestions` | Jobs you are ready for (match ≥ 70%) and jobs within reach, with example openings | `/api/suggest` |
+| Resume Analysis `/resume` | Your skills compared one by one with a target job; what to learn first | `/api/resume/parse`, `/api/gap` |
+| My Roadmap `/roadmap` | Readiness score and a staged plan of skills to learn, with a practice project per stage | `/api/roadmap` |
+| Market Dashboard `/insights` | Postings per month, most requested skills, fastest-rising skills, jobs table | `/api/market/overview`, `/api/skills/trending` |
+| Skill Trends `/trends` | Emerging / stable / declining skills with a forecast chart for each | `/api/skills/trending`, `/api/skills/{skill}/trend` |
 
 ```
 job-intel/
@@ -14,18 +21,24 @@ job-intel/
 │   ├── clean.py         raw CSV -> clean postings table
 │   ├── report.py        writes reports/data_report.md
 │   ├── market.py        skill/role statistics + market_overview.json
+│   ├── profiles.py      skill profile of every job role -> roles.json, skills.json
+│   ├── trends.py        trend tests + Holt forecasts per skill -> trends.json
+│   ├── evaluate.py      offline evaluation against simple baselines
 │   └── run_all.py       runs every step in order
 ├── backend/             FastAPI web API (deployed to Render)
 │   ├── app/main.py      the API app, /health, CORS
 │   ├── app/routers/     one file per group of endpoints
+│   ├── app/services/    scoring.py (all match/suggest/roadmap maths), resume.py (PDF/DOCX parsing)
 │   ├── app/schemas.py   response shapes (shown at /docs)
 │   ├── artifacts/       small files the API serves (made by the pipeline)
 │   └── Dockerfile       optional container build
 ├── frontend/            Next.js website (deployed to Vercel)
-│   └── src/app/page.tsx starter Market Dashboard
+│   ├── src/app/         Home page + the (app) pages with the sidebar
+│   ├── src/components/  shared UI pieces (cards, pills, gauge, sidebar)
+│   └── src/lib/         API client, saved profile, formatting helpers
 ├── tests/               pytest tests (run automatically on GitHub)
 ├── data/                raw / interim / processed data (NOT in Git)
-├── reports/             data_report.md for your project write-up
+├── reports/             data_report.md, suggestions_eval.md, forecast_eval.md (for the report)
 └── .github/workflows/   CI: runs tests + website build on every push
 ```
 
@@ -83,7 +96,7 @@ You'll see `(.venv)` at the start of the terminal line when it is active. Re-run
 python -m pipeline.run_all --sample
 pytest
 ```
-You should see `22 passed`.
+You should see `38 passed`.
 
 **2. Download the real dataset** (~231 MB, no account needed):
 ```bash
@@ -98,8 +111,8 @@ python -m pipeline.run_all
 This writes:
 - `data/interim/postings.parquet` — about 786k cleaned job postings
 - `data/processed/skills_monthly.parquet`, `role_skills.parquet`, `skill_categories.csv` — used in later steps
-- `backend/artifacts/market_overview.json` — what the website shows
-- `reports/data_report.md` — open it and press `Ctrl+Shift+V` to preview. **These tables go into your project report.**
+- `backend/artifacts/market_overview.json`, `roles.json`, `skills.json`, `trends.json` — what the website shows
+- `reports/data_report.md`, `suggestions_eval.md`, `forecast_eval.md` — open one and press `Ctrl+Shift+V` to preview. **These tables go into your project report.**
 
 ## Part E — Run the website on your computer
 
@@ -119,7 +132,7 @@ npm install
 copy .env.example .env.local      # Mac/Linux: cp .env.example .env.local
 npm run dev
 ```
-Open http://localhost:3000. You should see the dashboard with "API online". Stop either server with `Ctrl+C`.
+Open http://localhost:3000. You should see the JobIntel home page. Type `sql, python, excel` and click **Get job suggestions** to try it. Stop either server with `Ctrl+C`.
 
 ## Part F — Put the project on GitHub
 
@@ -133,7 +146,7 @@ git branch -M main
 git remote add origin https://github.com/YOUR-USERNAME/job-intel.git
 git push -u origin main
 ```
-The first push opens a browser window to sign in to GitHub. Large data files are excluded automatically by `.gitignore`; only the small `backend/artifacts/market_overview.json` is uploaded. Run the **real** pipeline (Part D, step 3) before pushing, so the live site shows real data.
+The first push opens a browser window to sign in to GitHub. Large data files are excluded automatically by `.gitignore`; only the small JSON files in `backend/artifacts/` are uploaded. Run the **real** pipeline (Part D, step 3) before pushing, so the live site shows real data.
 
 3. On GitHub, open the **Actions** tab: a green tick means the tests and website build passed.
 
@@ -179,5 +192,24 @@ From now on every `git push` to `main` redeploys both automatically. The API alr
 1. **Clean** (`clean.py`): maps the raw columns into a unified schema; parses the skill lists; converts hourly pay to yearly (× 2,080) and removes the top and bottom 1% of salaries; marks remote jobs; removes duplicates (same title, company, location and day).
 2. **Normalize titles** (`titles.py`): extracts the seniority level (Intern / Entry / Mid / Senior / Lead) and maps messy titles to about 17 canonical roles with ordered regex rules. The data report shows how often these rules agree with the dataset's own role labels.
 3. **Market statistics** (`market.py`): skill demand is measured as a **share** of postings, never as raw counts, because the number of postings changes from month to month.
+4. **Job profiles** (`profiles.py`): for every job role, the share of its postings that ask for each skill (top 40 kept), median salary, and a demand trend (share of postings in the last 3 months ÷ first 3 months).
+5. **Job suggestions** (`backend/app/services/scoring.py`): each role gets a score = 0.5 × cosine similarity (your skills vs the role's skill profile) + 0.3 × coverage (share-weighted part of the role's top 20 skills you have) + 0.2 × demand (log of postings). Coverage ≥ 70% = "Ready to apply". The roadmap orders missing skills by how often employers ask for them (rising skills get a small boost) and groups them into stages of two.
+6. **Skill trends** (`trends.py`): monthly share per skill; Theil-Sen slope and Mann-Kendall test decide emerging / stable / declining; Holt's linear smoothing forecasts 3 months ahead with an 80% band. Backtested on the last 3 months against naive and moving-average forecasts.
+7. **Evaluation** (`evaluate.py`): 10% of postings are held out and used as pretend candidates (their skills in, their real role as the answer). Hit@1, Hit@3 and MRR are compared with cosine-only, coverage-only and "most popular role" baselines. Results in `reports/suggestions_eval.md`.
+
+## API endpoints
+
+All under `/api`; try them at `/docs` on the running API.
+
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /market/overview` | Dashboard numbers |
+| `GET /roles`, `GET /skills` | Job roles and the skill dictionary |
+| `POST /resume/parse` | Upload a PDF/DOCX/TXT resume (max 5 MB), returns the skills found |
+| `POST /suggest` | Skills in, ranked job suggestions out |
+| `POST /gap` | Skills + target job in, skill-by-skill comparison out |
+| `POST /roadmap` | Skills + target job in, staged learning plan out |
+| `GET /skills/trending?label=emerging` | Skills by trend label |
+| `GET /skills/{skill}/trend` | History, forecast and test results for one skill |
 
 Data: [data_jobs](https://huggingface.co/datasets/lukebarousse/data_jobs) by Luke Barousse, Apache-2.0 license, 2023 job postings for data roles.

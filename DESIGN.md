@@ -53,17 +53,18 @@ Friendly and soft (rounded corners, pastel icon tiles, a little sparkle), with a
 - **All other pages** have a white left sidebar with the logo and this menu, each item with its icon, the current page highlighted in the indigo tint:
   - Home
   - (thin divider) Job Suggestions · Resume Analysis · My Roadmap
-  - (thin divider) Career Paths · What-If Simulator
   - (thin divider) Market Dashboard · Skill Trends
-  - No group titles and nothing else in the sidebar; the data source goes on the About page.
-- The user's skills (from a resume or typed) are kept in React context + `localStorage`, so every page uses the same profile.
+  - No group titles and nothing else in the sidebar.
+  - On phones (under 640 px) the sidebar becomes a compact row of links above the page.
+  - Career Paths and What-If Simulator are future work; add them under My Roadmap when built.
+- The user's skills (from a resume or typed) are kept in `localStorage` (`frontend/src/lib/profile.ts`), so every page uses the same profile.
 
 ## Pages
 
 ### Home `/`
 - Hero band with a dotted graph-paper background (1.2 px dots, `#D6D8EA`, every 22 px), two columns:
   - Left:
-    - A small white pill: "AI career guide · built on 786k real job postings", with an amber sparkle.
+    - A small white pill: "AI career guide · built on 775k real job postings", with an amber sparkle.
     - The headline: "Find the job that fits your skills, and a clear roadmap to the one you want."
     - A one-paragraph explanation.
   - Right, a product preview:
@@ -71,40 +72,40 @@ Friendly and soft (rounded corners, pastel icon tiles, a little sparkle), with a
     - Overlapping its bottom-right corner, a white job card: Data Analyst, an "81% match" pill, a progress bar and skill pills (`sql ✓`, `excel ✓`, `tableau ✓`, and `power bi +` in orange).
 - Two big cards side by side:
   1. **"I have skills" → Suggest jobs for me**: resume upload box (PDF/DOCX, 5 MB, "read once, never stored"), "or type your skills" input, button "Get job suggestions" with a sparkle icon (to `/suggestions`). This card has a 2 px indigo border, an Upload icon tile and the label "I have skills".
-  2. **"I know the job I want" → Build my roadmap**: "Dream job" dropdown (the starting point comes from the resume if there is one), three bullets (readiness score, staged skills with practice projects, easiest career route), button "Build my roadmap" with a map icon (to `/roadmap`). It has an amber Target icon tile and the label "I know the job I want"; the three bullets use Target, Code2 and Route icons instead of ✓.
+  2. **"I know the job I want" → Build my roadmap**: "Dream job" dropdown (the starting point comes from the resume if there is one), three bullets (readiness score, staged skills with practice projects, other jobs your skills lead to), button "Build my roadmap" with a map icon (to `/roadmap`). It has an amber Target icon tile and the label "I know the job I want"; the three bullets use Target, Code2 and Route icons instead of ✓.
 - "How it works": 3 cards (Tell us your skills → See where you stand → Follow your roadmap), each with an icon tile on the left and a light mono number `01` / `02` / `03` on the right.
-- "Also in JobIntel": link cards with icon tiles to Career Paths, What-If Simulator, Market Dashboard, Skill Trends (the border turns indigo on hover).
-- Footer in small mono: "built with python · scikit-learn · fastapi · next.js".
+- "Also in JobIntel": link cards with icon tiles to Resume Analysis, Market Dashboard, Skill Trends (the border turns indigo on hover).
+- Footer in small mono: "built with python · pandas · fastapi · next.js".
 
 ### Job Suggestions `/suggestions` (API: `/api/suggest`)
 - Title "Jobs that fit you", subtitle: "7 skills from my_resume.pdf, ranked by how well they match each job and how much it is in demand".
-- A card with the person's skills as indigo mono pills, an "Edit skills" link to `/resume`, and Location and Experience filters.
-- Two groups of job cards: **Ready to apply** (match ≥ 75%) and **Within reach** (one to three skills away). Each card shows a Briefcase icon tile, the job name, a line with median salary · number of postings · demand trend, a match pill (solid indigo when ≥ 75%, light indigo otherwise), "You have: …", "To learn: …" (mark the biggest gain), one primary button "Roadmap to this job" and a text link "See skill details".
-- Right column: **Example openings** for the selected job (title, type of company · city · source site, "Uses X of your Y skills"), three of them, with a note that they come from the dataset and are not live. (The ranking formula goes in the About page, not here.)
+- A card with the person's skills as indigo mono pills and an "Edit skills" link to `/resume`.
+- Two groups of job cards: **Ready to apply** (match ≥ 70%) and **Within reach** (one to three skills away). Each card shows a Briefcase icon tile, the job name, a line with median salary · number of postings · demand trend, a match pill (solid indigo when ≥ 70%, light indigo otherwise), "You have: …", "To learn: …" (mark the biggest gain), one primary button "Roadmap to this job" and a text link "See skill details".
+- Right column: **Example openings** for the selected job (title, company · city · date, "Uses X of your Y skills"), three of them, with a note that they come from the dataset and are not live. (The ranking formula goes in the About page, not here.)
 
 ### Resume Analysis `/resume` (API: `/api/resume/parse`, `/api/gap`)
 - Left card "Your profile": upload box, file name + detected current job, skills found as removable pills ("remove any that are wrong"), an "Add a skill" input.
 - Right card: a ring chart with the match %, a "Target job" dropdown, one sentence explaining the %, and a table: skill · "asked for in" bar with % · You (Matched / Partial / Missing pill) · Trend. Then "Learn these first": 3 skills with the match after each.
-- Show the 6 most important skills in the table, not more.
+- Show the 8 most important skills in the table, not more.
 - Bottom: one primary button "See jobs that fit these skills" (to `/suggestions`). No duplicate job cards here.
 
-### My Roadmap `/roadmap` (API: `/api/roadmap`, `/api/career/path`)
+### My Roadmap `/roadmap` (API: `/api/roadmap`)
 - Title "Your roadmap to {job}", subtitle with the starting point.
 - Readiness card: ring chart "% ready", a sentence like "You have 2 of the 8 skills {job} postings ask for most", and a "Target job" dropdown.
 - **Your plan**: a vertical timeline. A first stage "What you already have" (filled indigo circle with ✓), then numbered stages (outlined circles) joined by a grey line. Each stage has a title, "Match after: X%" on the right, short mono skill pills ("aws · 41%", amber with "· rising" for emerging skills) and a "Practice project: …" line. A last stage "Apply" says the job now appears in suggestions.
-- Right column: **Career route** (current job → steps → target, the target highlighted, link "Compare other routes →"), and a **Not sure about a skill?** card with a button to the What-If Simulator. Under the "Your plan" heading, one grey line explains the order and what the % means.
+- Right column: **Your skills also fit** (3 other jobs with their match %, each linking to its roadmap; titled "Other jobs to explore" with no % when no skills are entered), and a **Ready to look?** card with a button to `/suggestions`. Under the "Your plan" heading, one grey line explains the order and what the % means.
 
-### Career Paths `/career` (API: `/api/career/graph`, `/api/career/path`)
+### Future: Career Paths `/career` (API: `/api/career/graph`, `/api/career/path`)
 - From / To dropdowns and a "Find path" button.
 - "Easiest route" card: steps left to right (You are here → Step 1 → Goal, the goal card with an indigo border), with "Learn …" between steps; a summary line (moves · new skills · median pay change).
 - "Other routes" list and "Where you can go from here" (pills grouped by 1 move / 2 moves). An interactive graph view (Cytoscape.js) is a bonus.
 
-### What-If Simulator `/simulator` (API: `/api/whatif`)
+### Future: What-If Simulator `/simulator` (API: `/api/whatif`)
 - Left: Target job dropdown, current skills listed, "Skills to try" as toggle pills (indigo when on, mono text, `aria-pressed`), a Reset button.
 - Right: a sentence ("Adding aws and spark raises your match from 54% to 75%."), two bars (Now in grey, With new in indigo), "Your top 5 jobs after this" with an indigo "New" pill on jobs that entered the top 5, and "Best next skill" chips with the points each adds. Everything updates instantly when a pill is toggled.
 
 ### Market Dashboard `/insights` (API: `/api/market/overview`)
-- Filters (Country, Experience level, Job), 4 KPI cards (postings, companies, distinct skills, median salary with "% of postings that list pay"), a postings-per-month bar chart, a "Most requested skills" bar list, "Fastest-rising skills" with amber Emerging pills, and a jobs table (job, postings, median salary, top skills).
+- 4 KPI cards (postings, companies, distinct skills, median salary with "% of postings that list pay"), a postings-per-month bar chart, a "Most requested skills" bar list, "Fastest-rising skills" with amber Emerging pills, and a jobs table (job, postings, median salary, top skills).
 
 ### Skill Trends `/trends` (API: `/api/skills/{skill}/trend`, `/api/skills/trending`)
 - Skill search. A chart card: history line in indigo, a dashed amber forecast line with a light amber 80% band, a "Forecast" divider; the label pill; 4 evidence tiles (share now, growth, Mann-Kendall p-value, forecast with range) and one sentence explaining the label.

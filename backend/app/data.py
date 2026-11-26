@@ -16,7 +16,7 @@ from .config import artifacts_dir
 _cache: dict[Path, tuple[float, object]] = {}
 
 
-def load_json(name: str) -> dict:
+def load_json(name: str):
     path = artifacts_dir() / name
     if not path.exists():
         raise HTTPException(
@@ -26,7 +26,7 @@ def load_json(name: str) -> dict:
     mtime = path.stat().st_mtime
     cached = _cache.get(path)
     if cached and cached[0] == mtime:
-        return cached[1]  # type: ignore[return-value]
+        return cached[1]
     data = json.loads(path.read_text(encoding="utf-8"))
     _cache[path] = (mtime, data)
     return data
@@ -34,6 +34,26 @@ def load_json(name: str) -> dict:
 
 def market_overview() -> dict:
     return load_json("market_overview.json")
+
+
+def roles() -> list[dict]:
+    return load_json("roles.json")
+
+
+def skills() -> list[dict]:
+    return load_json("skills.json")
+
+
+def trends() -> dict:
+    return load_json("trends.json")
+
+
+def trend_labels() -> dict[str, str]:
+    """skill -> emerging / stable / declining (empty if trends haven't been built)."""
+    try:
+        return {s["skill"]: s["label"] for s in trends()["skills"]}
+    except HTTPException:
+        return {}
 
 
 def artifacts_status() -> dict:
